@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include ../../partials/head.ejs %>
+  <body>
+
+    <header>
+      <% include ../../partials/nav.ejs %>
+    </header>
+<!-- session -->
+      <% if (true) { %>
+<!-- session.name -->
+        <h3>Welcome <%=  %></h3>
+        <form method="post" action="users/logout?_method=DELETE">
+          <button>logout</button>
+        </form>
+
+        <form action="/crud" method="post">
+
+          <div>
+            <label for="name">CRUD Name</label>
+            <input type="text" name="name">
+          </div>
+
+          <div>
+            <label for="description">CRUD Description</label>
+            <input type="text" name="description">
+          </div>
+
+          <input type="submit" value="Submit">
+
+      <% } else { %>
+
+        <div>
+          <a href="/users/new">Signup</a>
+        </div>
+        <div>
+          <a href="/users/login">Log In</a>
+        </div>
+
+        <% } %>
+
+    <% include ../../partials/footer.ejs %>
+  </body>
+</html>
