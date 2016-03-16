@@ -7,9 +7,9 @@ To create a mad-lib community.
 
 #### User Stories
 **Keyword:**
-**Template:** story with blanks. Need words.
-**Completed:** story with blanks filled in.
-**Meta story:** continuous turn-based story.
+   * Template: story with blanks. Need words.
+   * Completed: story with blanks filled in.
+   * Meta story: continuous turn-based story.
 
 **Phase 1:**
 As a user…
