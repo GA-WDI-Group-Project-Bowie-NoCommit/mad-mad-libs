@@ -11,7 +11,7 @@ To create a mad-lib community.
 **Completed:** story with blanks filled in.
 **Meta story:** continuous turn-based story.
 
-**Phase 1**
+**Phase 1:**
 As a user…
  1. I should be able to sign up.
  2. I should be able to log in and log out.
@@ -23,7 +23,7 @@ As a user…
  5. I should be able to see my completed story with the words that I submitted.
  6. See the words that I put in different color?
 
-**Phase 2**
+**Phase 2:**
 As a user…
  1. I should be able to create a new template.
    * I want an input field for title.
@@ -35,7 +35,7 @@ As a user…
  4. I should be able to see my templates in the list of all templates.
  5. Allow others to fill in my template.
 
-**Phase 3**
+**Phase 3:**
 As a user…
  1. I should be able to add on to a meta story:
    * Fill in template.
@@ -51,8 +51,13 @@ As a user…
 ---
 
 #### Wire Frame:
-
+![wireframe1 text] (./planning/wireframe1.jpg "Wire Frame #1")
+![wireframe2 text] (./planning/wireframe2.jpg "Wire Frame #2")
 
 ---
 
 #### ERD
+![erd text] (./planning/ERD_mid-lib.png "ERD")
+
+---
+
