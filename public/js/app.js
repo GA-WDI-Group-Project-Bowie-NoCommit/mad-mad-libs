@@ -145,6 +145,13 @@ function requireAuth(nextState, replace) {
   }
 }
 
+var NotFound = React.createClass({
+  render : function() {
+    return <h1>404: Not Found... sry</h1>
+  }
+})
+
+
 let $container = document.getElementById('container');
 
 ReactDOM.render(<div>
@@ -155,6 +162,7 @@ ReactDOM.render(<div>
                       <Route path="about" component={About} />
                       <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
                     </Route>
+                    <Route path="*" component={NotFound} />
                   </Router>
                   <App />
                 </div>, $container);
