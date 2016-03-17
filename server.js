@@ -73,4 +73,4 @@ app.use('/cruds', crudRoutes);
 
 const port = process.env.PORT || 1337;
 const time = moment().format('MMMM Do YYYY, h:mm:ss a');
-const server = app.listen(port, ()=>console.log('Server online, Sir. Date and time is ' + time));
+const server = app.listen(port, ()=>console.log('Server online, on port ' , port, ', Sir. Date and time is ' + time));
