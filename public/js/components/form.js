@@ -1,18 +1,16 @@
-const React = require('react');
+import React from 'react'
+import { Link } from 'react-router'
 
-const Form = React.createClass({
+export default React.createClass({
 
   handleSubmit: function(event){
     event.preventDefault()
 
-    var crud = {
-      name: this.refs.name.value,
-      description: this.refs.description.value
+    var whatevs = {
+
     }
 
-    this.props.postCrud(crud)
 
-    this.refs.crudForm.reset()
 
   },
 
@@ -25,6 +23,7 @@ const Form = React.createClass({
 
     return(
       <div style={style}>
+      <div><Link to="/">Home</Link></div>
         <div>Form</div>
         <form ref="crudForm" onSubmit={this.handleSubmit}>
           <input ref="name" type="text" placeholder="name" />
@@ -35,5 +34,3 @@ const Form = React.createClass({
     )
   }
 })
-
-module.exports = Form;
