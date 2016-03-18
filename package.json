@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "bundle": "./node_modules/browserify/bin/cmd.js -t [ babelify --presets [react es2015 ] ] public/js/app.js -o public/js/bundle.js -d"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "express-jwt": "^3.3.0",
+    "firebase": "^2.4.1",
     "jquery": "^2.2.1",
     "jsonwebtoken": "^5.7.0",
     "moment": "^2.12.0",
