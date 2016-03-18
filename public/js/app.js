@@ -42,6 +42,7 @@ let Nav = React.createClass({
           <div><Link to="/template_form">Template Form (fill in nouns and verbs)</Link></div>
           <div><Link to="/Welcome">Welcome!</Link></div>
         </div>
+
         {this.props.children}
 
       </div>
@@ -75,13 +76,14 @@ render((
   <div>
     <Router history={browserHistory}>
       <Route path="/" component={Nav} >
-
-        <Route path="/auth" component={Auth} />
+        <Route path="/form" component={Form} />
+        <Route path="/auth" component={Auth}/>
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login} />
+        <Route path="/logout" component={Logout} />
         <Route path="/complete" component={CStory} />
         <Route path="/new_template" component={NTemplate} />
         <Route path="/edit_template" component={ETemplate} />
-        <Route path="/login" component={Login} />
-        <Route path="/logout" component={Logout} />
         <Route path="/meta" component={Meta} />
         <Route path="/all_templates" component={PTemplate} >
           <Route path="/form" component={Form} />
