@@ -7,9 +7,7 @@ body {
   /*background-color: #FAA;
 */
 }
-div {
-  
-}
+
 
 a {
   color: #500;
@@ -21,12 +19,29 @@ a:hover {
 }
 
 div {
-  padding: 10px;
-  margin: 10px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
 }
 
 #container {
   display: flex;
   flex-wrap: wrap;
-  max-width:980px;
+
+}
+
+.nav {
+  max-height: 300px;
+  min-width: 980px;
+  display: flexbox;
+  flex-wrap: wrap;
+  font-size: 0.8em;
+  flex-direction: row;
+  padding:0;
+
+}
+
+header {
+  font-size:1.5em;
+  margin-bottom: -10px;
 }
