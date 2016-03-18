@@ -13,12 +13,6 @@ const logger         = require('morgan');
 const path           = require('path');
 const moment         = require('moment');
 const bodyParser     = require('body-parser');
-// const methodOverride = require('method-override'); //if using a form for PUT and DELETE.
-// const pg            = require('pg');
-// const session        = require('express-session');
-// const pgSession      = require('connect-pg-simple')(session)
-const db             = require('./db/crud_pg');
-// const _              = require('lodash');
 const app            = express();
 
 /*----------------COMMAND PROMPT COMMANDS --------------*/
@@ -41,16 +35,6 @@ const app            = express();
 if(!process.env.NODE_ENV){
   require('dotenv').config();
 }
-const config = process.env.DATABASE_URL || {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS
-};
-
-//const userRoutes = require(path.join(__dirname, '/routes/users'));
-//const crudRoutes = require(path.join(__dirname, '/routes/cruds'));
 
 if(process.env.NODE_ENV === 'dev'){
   app.use(logger('dev'));
@@ -70,8 +54,6 @@ app.get('/', (req, res)=>{
 app.get ('*', (req, res)=>{
   res.sendFile(__dirname + '/public/index.html');
 })
-//app.use('/users', userRoutes);
-//app.use('/cruds', crudRoutes);
 
 const port = process.env.PORT || 1337;
 const time = moment().format('MMMM Do YYYY, h:mm:ss a');
