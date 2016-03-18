@@ -11,17 +11,25 @@ To create a mad-lib community.
    * Completed: story with blanks filled in.
    * Meta story: continuous turn-based story.
 
-**Phase 1:**
+**Phase 0:**
 As a user…
  1. I should be able to sign up.
  2. I should be able to log in and log out.
+
+ **Phase 1:**
+ 1. I should be able to see my options of what I can do
+ 2. I should be able to see all the templates
  3. I should be able to choose a  story template.
  4. I should be able to fill in words for the story template.
    * Manual filled
    * Random word?
    * Check word from api
+ 4. B - submit my words
  5. I should be able to see my completed story with the words that I submitted.
- 6. See the words that I put in different color?
+      - See the words that I put in different color?
+ 6. I should be able to see all my completed stories
+ 7. I should be able to see everyone's completed stories as a list
+ 7a. I should be able to read one person's story on a single page
 
 **Phase 2:**
 As a user…
@@ -30,10 +38,11 @@ As a user…
    * I want an input text field to write my story.
    * I want a button to remove/mark verb-noun to be remove for template.
    * I want a submit button to save my template.
- 2. I should be able to edit my submitted template title (and later, be able to edit the preface?).
- 3. I should be able to delete my submitted templates.
- 4. I should be able to see my templates in the list of all templates.
- 5. Allow others to fill in my template.
+ 2. I should be able to see my template
+ 3.  I should be able to edit my submitted template title (and later, be able to edit the preface?).
+ 4. I should be able to delete my submitted templates.
+ 5. I should be able to see my templates in the list of all templates.
+ 6. Allow others to fill in my template.
 
 **Phase 3:**
 As a user…
@@ -60,4 +69,3 @@ As a user…
 ![erd text] (./planning/ERD_mid-lib.png "ERD")
 
 ---
-
