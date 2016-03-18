@@ -64,9 +64,12 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res)=>{
-  res.render('index.html');
+  res.sendFile('index.html');
 })
 
+app.get ('/*', (req, res)=>{
+  res.sendFile('index.html');
+})
 //app.use('/users', userRoutes);
 //app.use('/cruds', crudRoutes);
 
