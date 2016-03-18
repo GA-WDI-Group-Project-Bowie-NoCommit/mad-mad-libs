@@ -20,7 +20,7 @@ import Welcome from './components/welcome.js'
 
 
 
-import { Router, Route, hashHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
 
 let Nav = React.createClass({
   render: function () {
@@ -28,19 +28,17 @@ let Nav = React.createClass({
       <div> NAV NAV NAV!
         <div><Link to="/">Already Home</Link></div>
         <div><Link to="/form">Form</Link></div>
-        <div><Link to="/auth">Auth</Link></div>
         <div><Link to="/complete">Completed Story</Link></div>
 
         <div><Link to="/new_template">New Template</Link></div>
         <div><Link to="/edit_template">Edit Template</Link></div>
-        <div><Link to="/login">Login</Link></div>
-        <div><Link to="/logout">Log out</Link></div>
+        <div><Link to="/auth">Auth</Link></div>
         <div><Link to="/Meta">Meta</Link></div>
         <div><Link to="/all_templates">All Templates</Link></div>
-        <div><Link to="/signup">Sign Up</Link></div>
         <div><Link to="/template_form">Template Form (fill in nouns and verbs)</Link></div>
         <div><Link to="/Welcome">Welcome!</Link></div>
 
+        {this.props.children}
 
       </div>
     )
@@ -71,25 +69,23 @@ let $container = document.getElementById('container');
 render((
 
   <div>
-    <Router history={hashHistory}>
-      <Route path="/" component={Nav} />
-      <Route path="/form" component={Form} />
-      <Route path="/auth" component={Auth} />
-      <Route path="/complete" component={CStory} />
-      <Route path="/new_template" component={NTemplate} />
-      <Route path="/edit_template" component={ETemplate} />
-      <Route path="/login" component={Login} />
-      <Route path="/logout" component={Logout} />
-      <Route path="/meta" component={Meta} />
-      <Route path="/all_templates" component={PTemplate} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/template_form" component={TForm} />
-      <Route path="/welcome" component={Welcome} />
-
-
-
-
-      <Route path="*" component={NotFound} />
+    <Router history={browserHistory}>
+      <Route path="/" component={Nav} >
+        <Route path="/form" component={Form} />
+        <Route path="/complete" component={CStory} />
+        <Route path="/new_template" component={NTemplate} />
+        <Route path="/edit_template" component={ETemplate} />
+        <Route path="/auth" component={Auth} >
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+          <Route path="/logout" component={Logout} />
+        </Route>
+        <Route path="/meta" component={Meta} />
+        <Route path="/all_templates" component={PTemplate} />
+        <Route path="/template_form" component={TForm} />
+        <Route path="/welcome" component={Welcome} />
+        <Route path="*" component={NotFound} />
+      </Route>
     </Router>
     <App />
   </div>

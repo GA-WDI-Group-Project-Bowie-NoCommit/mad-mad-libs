@@ -67,8 +67,8 @@ app.get('/', (req, res)=>{
   res.sendFile('index.html');
 })
 
-app.get ('/*', (req, res)=>{
-  res.sendFile('index.html');
+app.get ('*', (req, res)=>{
+  res.sendFile(__dirname + '/public/index.html');
 })
 //app.use('/users', userRoutes);
 //app.use('/cruds', crudRoutes);
