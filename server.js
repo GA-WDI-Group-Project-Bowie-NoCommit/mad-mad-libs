@@ -49,8 +49,8 @@ const config = process.env.DATABASE_URL || {
   password: process.env.DB_PASS
 };
 
-const userRoutes = require(path.join(__dirname, '/routes/users'));
-const crudRoutes = require(path.join(__dirname, '/routes/cruds'));
+//const userRoutes = require(path.join(__dirname, '/routes/users'));
+//const crudRoutes = require(path.join(__dirname, '/routes/cruds'));
 
 if(process.env.NODE_ENV === 'dev'){
   app.use(logger('dev'));
@@ -61,15 +61,14 @@ if(process.env.NODE_ENV === 'dev'){
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res)=>{
-  res.render('pages/home');
+  res.render('index.html');
 })
 
-app.use('/users', userRoutes);
-app.use('/cruds', crudRoutes);
+//app.use('/users', userRoutes);
+//app.use('/cruds', crudRoutes);
 
 const port = process.env.PORT || 1337;
 const time = moment().format('MMMM Do YYYY, h:mm:ss a');
