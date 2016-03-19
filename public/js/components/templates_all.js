@@ -1,22 +1,47 @@
 import React from 'react'
 import { Link } from 'react-router'
-import Form from './form.js'
 
+import Firebase from 'firebase'
+
+import AllTemplates from './templates_all/templates_all.js'
+import SingleTemplate from './templates_all/templates_single.js'
 
 export default React.createClass({
 
+  getInitialState: function(){
+    return{
+      templates: []
+    }
+  },
 
+  componentWillMount: function(){
 
-  render: function(){
+      this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
+      this.firebaseRef.on("child_added", function(dataSnapshot) {
+        this.state.templates.push(dataSnapshot.val());
 
-    return(
-      <div>
-        <div>View of all titles of templates that can be clicked on to go to a play form to fill out nouns and verbs</div>
-        <div><Link to="/form">Form</Link></div>
-        <Form></Form>
-      <div> </div>
+        this.setState({
+          items: this.state.templates
+        });
 
-      </div>
-    )
-  }
-})
+      }.bind(this));
+
+    },
+
+    renderTemplates: function(key){
+      return (
+        <SingleTemplate key={key} template={this.state.templates[key]} />
+      )
+    },
+
+    render: function(){
+      return(
+        <div>
+          this is the template component
+          <AllTemplates templates={Object.keys(this.state.templates).map(this.renderTemplates)} />
+          {this.props.children}
+        </div>
+      );
+    }
+    
+});
