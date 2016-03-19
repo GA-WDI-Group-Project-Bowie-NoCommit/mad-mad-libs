@@ -9,7 +9,7 @@ export default React.createClass({
 
     return(
       <div>
-        <div>View of Story once template has been filled in</div>
+        <div>Edit a template</div>
 
       </div>
     )
