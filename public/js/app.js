@@ -5,11 +5,11 @@ import { render } from 'react-dom'
 import { Link } from 'react-router'
 
 import Auth from './components/auth.js'
-import StoryN from './components/stories_new.js'
-import StoryS from './components/stories_single.js'
-import TemplateN from './components/templates_new.js'
-import TemplateE from './components/templates_edit.js'
-import TemplateA from './components/templates_all.js'
+import StoriesN from './components/stories_new.js'
+import StoriesS from './components/stories_single.js'
+import TemplatesN from './components/templates_new.js'
+import TemplatesE from './components/templates_edit.js'
+import TemplatesA from './components/templates_all.js'
 
 import Meta from './components/meta.js'
 
@@ -81,15 +81,15 @@ render((
         <Route path="/login" component={Login} />
         <Route path="/logout" component={Logout} />
 
-        <Route path="/templates" component={TemplateA} >
-          <Route path="templates/:id/story/new" component={StoryN} />
+        <Route path="/templates" component={TemplatesA} >
+          <Route path="templates/:id/story/new" component={StoriesN} />
         </Route>
         {/*<Route path="/my/stories" component={} />*/}
-        <Route path="/story/:id" component={StoryS} />
-        <Route path="/templates/new" component={TemplateN} />
+        <Route path="/story/:id" component={StoriesS} />
+        <Route path="/templates/new" component={TemplatesN} />
         {/*<Route path="/my/templates" component={} />*/}
         {/*<Route path="/stories" component={} />*/}
-        <Route path="/my/templates/:id/edit" component={TemplateE} />
+        <Route path="/my/templates/:id/edit" component={TemplatesE} />
         <Route path="/meta" component={Meta} />
         <Route path="/form" component={Form} /> {/*not a real Route*/}
         <Route path="/welcome" component={Welcome} />
