@@ -21,6 +21,7 @@ export default React.createClass({
         this.setState({user: snapshot.val()[currentuser]});
       });
     }
+    this.setState({user: {}});
   },
 
   componentWillUnmount: function(){
@@ -46,23 +47,6 @@ export default React.createClass({
         </div>
       )
     };
-    // userInfo.on('value', (snapshot) => {
-    //   this.state.userInfo = snapshot.val()[userRef.getAuth().uid];
-    //   this.setState({userInfo: this.state.userInfo})
-    // })
-
-    // function currentUser(valueAssigned){
-    //   var iam;
-    //   userInfo.on('value', (snapshot) => {
-    //     iam = (snapshot.val()[userRef.getAuth().uid].name);
-    //     valueAssigned(iam);
-    //   })
-    // };
-    // function onComplete(iam){
-    //   return (iam)
-    // }
-
-    // console.log(currentUser(onComplete))
 
     return(
       <div>
@@ -73,7 +57,5 @@ export default React.createClass({
         </div>
       </div>
     )
-
-
   }
 })
