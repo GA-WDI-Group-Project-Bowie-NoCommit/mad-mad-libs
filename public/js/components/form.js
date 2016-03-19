@@ -22,12 +22,11 @@ export default React.createClass({
     }
 
     return(
-      <div style={style}>
-
-        <div>Form</div>
+      <div className="form" style={style}>
         <form ref="crudForm" onSubmit={this.handleSubmit}>
-          <input ref="name" type="text" placeholder="name" />
-          <input ref="description" type="text" placeholder="Description" />
+          <input ref="name" type="text" placeholder="your name" />
+          <input ref="description" type="text" placeholder="Story Title" />
+          <textarea ref="test" rows="5"> Testing what is here can we put something in dynamically for editing later? </textarea>
           <button type="submit">Form Button</button>
         </form>
       </div>
