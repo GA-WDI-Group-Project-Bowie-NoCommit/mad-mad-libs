@@ -9,7 +9,6 @@ export default React.createClass({
 
     return(
       <div>
-      <div><Link to="/">Home</Link></div>
         <div>The welcome landing page thing stuff</div>
 
       </div>

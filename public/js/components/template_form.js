@@ -9,7 +9,6 @@ export default React.createClass({
 
     return(
       <div>
-      <div><Link to="/">Home</Link></div>
         <div>this is where you fill out the nouns and verbs with just knowing the title of the story</div>
 
       </div>
