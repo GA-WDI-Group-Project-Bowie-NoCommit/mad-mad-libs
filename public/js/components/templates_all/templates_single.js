@@ -13,7 +13,7 @@ export default React.createClass({
 
   render: function(){
 
-  var { thing } = this.props.params
+  var { title } = this.props.params
 
     var style = {
       border: '2px solid black',
@@ -23,7 +23,7 @@ export default React.createClass({
     return(
       <div style={style}>
         <div>Form</div>
-        <div>Title is: {thing}</div>
+        <div>Title is: {title}</div>
         <form ref="crudForm" onSubmit={this.handleSubmit}>
           <input ref="noun" type="text" placeholder="Noun" />
           <input ref="verb" type="text" placeholder="Verb" />
