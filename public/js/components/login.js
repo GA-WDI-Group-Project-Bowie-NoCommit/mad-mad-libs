@@ -8,13 +8,13 @@ var userInfo = new Firebase('https://crackling-torch-879.firebaseio.com/users/')
 
 export default React.createClass({
 
-  getInitialState: function(){
+  getInitialState: function(){    //set initial state.
     return {
       user: {}
     }
   },
 
-  componentWillMount: function(){
+  componentWillMount: function(){   //load info from userInfo.
     if(userRef.getAuth()){
       var currentuser = userRef.getAuth().uid;
       console.log(currentuser);
@@ -25,7 +25,7 @@ export default React.createClass({
     this.setState({user: {}});
   },
 
-  componentWillUnmount: function(){
+  componentWillUnmount: function(){   //disable connection?
     userInfo.off();
   },
 
