@@ -38,7 +38,6 @@ export default React.createClass({
 
     return(
       <div style={style}>
-        <div><Link to="/">Home</Link></div>
         <div>Authorization Stuff Here!</div>
         {/*<div><Route path="/signup" component={Signup}/></div>
         <div><Route path="/login" component={Login} /></div>

@@ -9,7 +9,6 @@ export default React.createClass({
 
     return(
       <div>
-      <div><Link to="/">Home</Link></div>
         <div>This is where a user can edit or delete a created template</div>
 
       </div>
