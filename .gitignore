@@ -1,6 +1,5 @@
 node_modules
 .env
-*bundle.js
 ./public/js/bundle.js
 *bundle.js
 */bundle.js
