@@ -23,7 +23,7 @@ export default React.createClass({
 
     return(
       <div style={style}>
-      <div><Link to="/">Home</Link></div>
+
         <div>Form</div>
         <form ref="crudForm" onSubmit={this.handleSubmit}>
           <input ref="name" type="text" placeholder="name" />

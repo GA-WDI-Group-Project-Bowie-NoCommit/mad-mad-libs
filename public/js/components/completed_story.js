@@ -9,7 +9,6 @@ export default React.createClass({
 
     return(
       <div>
-      <div><Link to="/">Home</Link></div>
         <div>View of Story once template has been filled in</div>
 
       </div>
