@@ -46,6 +46,16 @@ export default React.createClass({
           name: userinfo.name,
           email: userinfo.email,
         });
+        userRef.authWithPassword({
+          email: userinfo.email,
+          password: userinfo.password,
+        }, (error, authData) => {
+          if(error){
+            console.log('Login Failed. Please try again.', error);
+          }
+          console.log('Login success.')
+        });
+
       }
     })
 
