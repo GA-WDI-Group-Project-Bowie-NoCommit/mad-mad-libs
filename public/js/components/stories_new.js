@@ -15,17 +15,14 @@ export default React.createClass({
 
   componentWillMount: function(){
 
-    var firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
-    console.log(this.props.params.id)
-    var thing = this.props.params.id
+    this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
 
-    firebaseRef.orderByChild("title").equalTo(thing).on("child_added", function(snapshot) {
-      console.log(snapshot.key());
-      console.log(snapshot.val().title);
-      this.state.templates.push(dataSnapshot.val());
+    this.firebaseRef.on("child_added", function(dataSnapshot) {
+
+      this.state.template.push(dataSnapshot.val());
 
       this.setState({
-        items: this.state.template5
+        items: this.state.template
       });
 
     }.bind(this));
