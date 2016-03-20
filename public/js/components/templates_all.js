@@ -23,6 +23,8 @@ export default React.createClass({
         console.log(dataSnapshot.val().title);
         this.state.templates.push(dataSnapshot.val());
 
+console.log('hello from templates_all')
+
         this.setState({
           items: this.state.templates
         });

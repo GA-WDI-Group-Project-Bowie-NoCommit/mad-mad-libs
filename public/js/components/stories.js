@@ -9,10 +9,8 @@ export default React.createClass({
 
     return(
       <div>
-        <div>View of Story once template has been filled in</div>
-        <button> do over! </button>
-        <p></p>
-        <button> save </button>
+        <div>A list of completed stories for people to view</div>
+        <div> <Link to="/story/:id">Links to view one story</Link>  </div>
       </div>
     )
   }

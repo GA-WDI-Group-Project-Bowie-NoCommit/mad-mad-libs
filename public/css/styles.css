@@ -127,3 +127,17 @@ textarea{
 textarea:focus {
   border: .5px solid #ffe58f;
 }
+
+
+/***********************************************************
+                            Add Noun Verb Form
+***********************************************************/
+
+.noun {
+  display: block;
+
+}
+.verb {
+  display: block;
+  background-color: dodgerblue;
+}
