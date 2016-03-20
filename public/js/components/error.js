@@ -1,7 +1,8 @@
+
 import React from 'react'
 import $ from 'jquery'
 
-var randomWord = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?';
+var randomWord = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?api_key=';
 
 export default React.createClass({
 
@@ -15,7 +16,7 @@ export default React.createClass({
     $.get(randomWord+process.env.API).done( data=> {
       console.log(data);
     })
-  }
+  },
 
   render: function() {
     return(

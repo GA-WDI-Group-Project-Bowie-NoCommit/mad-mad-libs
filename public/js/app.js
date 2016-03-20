@@ -21,8 +21,10 @@ import Welcome from './components/welcome.js'
 
 import Form from './components/form.js'
 
-import Error from './components/error.js' //added error file
-
+//added error file
+// import {} from 'dotenv/config'
+import Error from './components/error.js'
+// dotenv.config();
 
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
