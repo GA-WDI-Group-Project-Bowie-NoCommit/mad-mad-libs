@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import Form from './form.js'
 
 export default React.createClass({
 
@@ -12,7 +13,7 @@ export default React.createClass({
         <div>
         This is where a user can create a template
         <p></p>
-        <div><Link to="/form">Form</Link></div>
+        <div><Form /></div>
         </div>
 
       </div>
