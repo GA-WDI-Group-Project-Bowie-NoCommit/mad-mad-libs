@@ -16,15 +16,16 @@ export default React.createClass({
   componentWillMount: function(){
 
     var firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
-
-    var thing = this.props.params
+    console.log(this.props.params.id)
+    var thing = this.props.params.id
 
     firebaseRef.orderByChild("title").equalTo(thing).on("child_added", function(snapshot) {
       console.log(snapshot.key());
+      console.log(snapshot.val().title);
       this.state.templates.push(dataSnapshot.val());
 
       this.setState({
-        items: this.state.template
+        items: this.state.template5
       });
 
     }.bind(this));
@@ -36,6 +37,11 @@ export default React.createClass({
   },
 
   render: function(){
+
+    var style = {
+      border: '2px solid black',
+      padding: '6px'
+    }
 
     return(
       <div>
