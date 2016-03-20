@@ -58,9 +58,15 @@ export default React.createClass({
     if(element === "_noun_"){
       nouns++
       thing.push(<input ref={`noun${nouns}`} type="text" placeholder="Noun" />)
+      this.setState({
+        this.state.nouns = nouns
+      });
     } else if (element === "_verb_"){
       verbs++
       thing.push(<input ref={`verb${verbs}`} type="text" placeholder="Verb" />)
+      this.setState({
+        this.state.nouns = nouns
+      });
     }
 
   })
