@@ -82,7 +82,7 @@ render((
         <Route path="/logout" component={Logout} />
 
         <Route path="/templates" component={TemplatesA} >
-          <Route path="templates/:id/story/new" component={StoriesN} />
+          <Route path="/templates/:id/story/new" component={StoriesN} />
         </Route>
         {/*<Route path="/my/stories" component={} />*/}
         <Route path="/story/:id" component={StoriesS} />
