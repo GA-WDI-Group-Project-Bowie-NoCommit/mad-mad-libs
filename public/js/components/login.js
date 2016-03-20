@@ -37,7 +37,11 @@ export default React.createClass({
       if(error) {
         console.log('Login Failed.', error);
       } else {
-        console.log('Login success.')
+        console.log('Login success.');
+        var currentuser = userRef.getAuth().uid;
+        userInfo.on('value', (snapshot) => {
+          this.setState({user: snapshot.val()[currentuser]});
+        });
       }
     })
     this.refs.loginform.reset();
@@ -78,7 +82,7 @@ const GetUserInfo = React.createClass({
   render: function(){
     return(
       <div>
-        <h3> WelcomE {this.props.details.name} </h3>
+        <h3> Welcome {this.props.details.name} </h3>
       </div>
     )
   }

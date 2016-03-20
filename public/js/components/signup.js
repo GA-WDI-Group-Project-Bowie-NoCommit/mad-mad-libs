@@ -39,7 +39,7 @@ export default React.createClass({
     this.refs.signupform.reset();
     userRef.createUser({email: userinfo.email, password: userinfo.password}, (error, userData) => {
       if(error){
-        console.log('Error creating user.', error);
+        alert('Error creating user.', error);
       } else {
         console.log('Welcome ' + userinfo.name);
         users.child(userData.uid).set({
@@ -53,9 +53,12 @@ export default React.createClass({
           if(error){
             console.log('Login Failed. Please try again.', error);
           }
-          console.log('Login success.')
+          console.log('Login success.');
+          var currentuser = userRef.getAuth().uid;
+          userInfo.on('value', (snapshot) => {
+            this.setState({user: snapshot.val()[currentuser]});
+          });
         });
-
       }
     })
 
@@ -69,21 +72,21 @@ export default React.createClass({
           <h3>Welcome {this.state.user.name}</h3>
         </div>
       )
-    };
-
-    return(
-      <div>
-      <div><Link to="/">Home</Link></div>
+    } else {
+      return(
         <div>
-          <form ref="signupform" onSubmit={this.handleSubmit}>
-            <input ref="email" placeholder="email" /><br/>
-            <input ref="password" type="password" placeholder="password" /><br/>
-            <input ref="name" placeholder="Name" /><br/>
-            <input type="submit" value="Submit" />
-          </form>
+        <div><Link to="/">Home</Link></div>
+        <div>
+        <form ref="signupform" onSubmit={this.handleSubmit}>
+        <input ref="email" placeholder="email" /><br/>
+        <input ref="password" type="password" placeholder="password" /><br/>
+        <input ref="name" placeholder="Name" /><br/>
+        <input type="submit" value="Submit" />
+        </form>
         </div>
 
-      </div>
-    )
+        </div>
+      )
+    }
   }
 })
