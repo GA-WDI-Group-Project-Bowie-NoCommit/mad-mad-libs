@@ -2,10 +2,31 @@ import React from 'react'
 import { Link } from 'react-router'
 import Firebase from 'firebase'
 
-var ref = new Firebase('https://crackling-torch-879.firebaseio.com/');
-var users = ref.child('users');
+var userRef = new Firebase('https://crackling-torch-879.firebaseio.com/');
+var userInfo = new Firebase('https://crackling-torch-879.firebaseio.com/users/');
+var users = userRef.child('users');
 
 export default React.createClass({
+
+  getInitialState: function(){
+    return{
+      user: {}
+    }
+  },
+
+  componentWillMount: function(){
+    if(userRef.getAuth()){
+      var currentuser = userRef.getAuth().uid;
+      userInfo.on('value', (snapshot) => {
+        this.setState({user: snapshot.val()[currentuser]});
+      });
+    }
+    this.setState({user:{}});
+  },
+
+  componentWillUnmount: function() {
+    userInfo.off();
+  },
 
   handleSubmit: function(event){
     event.preventDefault();
@@ -16,7 +37,7 @@ export default React.createClass({
     }
     console.log(userinfo);
     this.refs.signupform.reset();
-    ref.createUser({email: userinfo.email, password: userinfo.password}, (error, userData) => {
+    userRef.createUser({email: userinfo.email, password: userinfo.password}, (error, userData) => {
       if(error){
         console.log('Error creating user.', error);
       } else {
@@ -31,6 +52,14 @@ export default React.createClass({
   },
 
   render: function(){
+
+    if(userRef.getAuth()){
+      return(
+        <div>
+          <h3>Welcome {this.state.user.name}</h3>
+        </div>
+      )
+    };
 
     return(
       <div>

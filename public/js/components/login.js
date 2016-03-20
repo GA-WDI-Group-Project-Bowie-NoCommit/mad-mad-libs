@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Firebase from 'firebase'
-import $ from 'jquery'
+// import $ from 'jquery'
 
 var userRef = new Firebase('https://crackling-torch-879.firebaseio.com/');
 var userInfo = new Firebase('https://crackling-torch-879.firebaseio.com/users/');
@@ -17,7 +17,6 @@ export default React.createClass({
   componentWillMount: function(){   //load info from userInfo.
     if(userRef.getAuth()){
       var currentuser = userRef.getAuth().uid;
-      console.log(currentuser);
       userInfo.on('value', (snapshot) => {
         this.setState({user: snapshot.val()[currentuser]});
       });
