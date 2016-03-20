@@ -141,3 +141,17 @@ textarea:focus {
   display: block;
   background-color: dodgerblue;
 }
+/***********************************************************
+                      Cards
+***********************************************************/
+.cardscontainer {
+  display:flex;
+}
+
+.card {
+  background-color: dodgerblue;
+  display: inline-block;
+  padding:15px;
+  margin:10px;
+  box-shadow:1px 2px 3px 1px #666;
+}
