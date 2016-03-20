@@ -15,17 +15,16 @@ export default React.createClass({
 
   componentWillMount: function(){
 
-    var firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
-    console.log(this.props.params.id)
-    var thing = this.props.params.id
+    this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
 
-    firebaseRef.orderByChild("title").equalTo(thing).on("child_added", function(snapshot) {
-      console.log(snapshot.key());
-      console.log(snapshot.val().title);
-      this.state.templates.push(dataSnapshot.val());
+    var title = this.props.params.id
+
+    this.firebaseRef.orderByChild("title").equalTo(title).on("child_added", function(dataSnapshot) {
+
+      this.state.template.push(dataSnapshot.val());
 
       this.setState({
-        items: this.state.template5
+        items: this.state.template
       });
 
     }.bind(this));
@@ -34,6 +33,44 @@ export default React.createClass({
   handleSubmit: function(event){
     event.preventDefault()
     console.log ('the button i pusheded it')
+
+  },
+
+  renderTitle: function(){
+
+  var template = this.state.template[0].title;
+
+    return(
+      <div>
+        {template}
+      </div>
+    )
+  },
+
+  renderTemplate: function(){
+
+  var thing = []
+  var storyText = this.state.template[0].text;
+  var nouns = 0;
+  var verbs = 0;
+
+  var textArray = storyText.split(' ').forEach(function(element, index){
+
+    if(element === "_noun_"){
+      nouns++
+      thing.push(<input ref={`noun${nouns}`} type="text" placeholder="Noun" />)
+    } else if (element === "_verb_"){
+      verbs++
+      thing.push(<input ref={`verb${verbs}`} type="text" placeholder="Verb" />)
+    }
+
+  })
+
+  return(
+    <div>
+      {thing}
+    </div>
+  )
 
   },
 
@@ -48,10 +85,15 @@ export default React.createClass({
       <div>
         <div>this is where you fill out the nouns and verbs with just knowing the title of the story</div>
 
+        {this.renderTitle()}
           <div className="form" style={style}>
             <form ref="storyForm" onSubmit={this.handleSubmit}>
+<<<<<<< HEAD
+              {this.renderTemplate()}
+=======
               <input ref="noun1" type="text" className="noun" placeholder="Noun" />
               <input ref="verb2" type="text" className="verb" placeholder="Verb" />
+>>>>>>> c76eec0c17c92bc9aa944a822fd0755da7244121
               <button type="submit">Form Button</button>
             </form>
           </div>
