@@ -21,6 +21,8 @@ import Welcome from './components/welcome.js'
 
 import Form from './components/form.js'
 
+import Error from './components/error.js' //added error file
+
 
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
@@ -60,10 +62,12 @@ let App = React.createClass({
 });
 
 
-
+//I'm playing around here!!!
 var NotFound = React.createClass({
   render : function() {
-    return <h1>404: Not Found... sry</h1>
+    return (
+      <Error />
+    )
   }
 })
 
