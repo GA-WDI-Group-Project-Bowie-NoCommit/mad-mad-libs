@@ -33,6 +33,7 @@ export default React.createClass({
 
   handleSubmit: function(event){
     event.preventDefault()
+    console.log ('the button i pusheded it')
 
   },
 
@@ -49,13 +50,12 @@ export default React.createClass({
 
           <div className="form" style={style}>
             <form ref="storyForm" onSubmit={this.handleSubmit}>
-              <input ref="noun1" type="text" placeholder="Noun" />
-              <input ref="verb2" type="text" placeholder="Verb" />
-              <textarea ref="test" rows="5"> Testing what is here can we put something in dynamically for editing later? </textarea>
+              <input ref="noun1" type="text" className="noun" placeholder="Noun" />
+              <input ref="verb2" type="text" className="verb" placeholder="Verb" />
               <button type="submit">Form Button</button>
             </form>
           </div>
-
+  <div> <Link to="/story/:id"><div>To stories_single.js </div></Link>        </div>
       </div>
     )
   }

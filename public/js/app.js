@@ -5,6 +5,7 @@ import { render } from 'react-dom'
 import { Link } from 'react-router'
 
 import Auth from './components/auth.js'
+import Stories from './components/stories.js'
 import StoriesN from './components/stories_new.js'
 import StoriesS from './components/stories_single.js'
 import TemplatesN from './components/templates_new.js'
@@ -87,7 +88,7 @@ render((
         <Route path="/story/:id" component={StoriesS} />
         <Route path="/templates/new" component={TemplatesN} />
         {/*<Route path="/my/templates" component={} />*/}
-        {/*<Route path="/stories" component={} />*/}
+        <Route path="/stories" component={Stories} />
         <Route path="/my/templates/:id/edit" component={TemplatesE} />
         <Route path="/meta" component={Meta} />
         <Route path="/form" component={Form} /> {/*not a real Route*/}
