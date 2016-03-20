@@ -88,12 +88,7 @@ export default React.createClass({
         {this.renderTitle()}
           <div className="form" style={style}>
             <form ref="storyForm" onSubmit={this.handleSubmit}>
-<<<<<<< HEAD
               {this.renderTemplate()}
-=======
-              <input ref="noun1" type="text" className="noun" placeholder="Noun" />
-              <input ref="verb2" type="text" className="verb" placeholder="Verb" />
->>>>>>> c76eec0c17c92bc9aa944a822fd0755da7244121
               <button type="submit">Form Button</button>
             </form>
           </div>
