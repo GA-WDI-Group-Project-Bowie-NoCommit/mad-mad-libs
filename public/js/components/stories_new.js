@@ -89,7 +89,6 @@ export default React.createClass({
           <div className="form" style={style}>
             <form ref="storyForm" onSubmit={this.handleSubmit}>
               {this.renderTemplate()}
-
               <button type="submit">Form Button</button>
             </form>
           </div>
