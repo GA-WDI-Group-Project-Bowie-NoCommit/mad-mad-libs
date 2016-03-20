@@ -33,6 +33,7 @@ export default React.createClass({
     if(userRef.getAuth()){
       userRef.unauth();
       console.log('Successfully logged out');
+      this.setState({user: {}})
     } else {
       console.log('You need to log in to log out');
     }
@@ -51,7 +52,7 @@ export default React.createClass({
     return(
       <div>
         <div><Link to="/">Home</Link></div>
-        <div><h1>Welcome {this.state.user.name}</h1></div>
+        <div><h3>Welcome {this.state.user.name}</h3></div>
         <div>
           <button ref="logout" onClick={this.handleClick}>Logout </button>
         </div>
