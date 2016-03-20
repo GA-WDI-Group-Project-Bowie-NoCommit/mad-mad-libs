@@ -6,8 +6,8 @@ export default React.createClass({
 
     return(
       <div>
-        <Link to={`/form/${this.props.template.title}`}>{this.props.template.title}</Link>
-        {this.props.children}
+        <Link to={`templates/${this.props.template.title}/story/new`}>{this.props.template.title}</Link>
+      
       </div>
     )
   }

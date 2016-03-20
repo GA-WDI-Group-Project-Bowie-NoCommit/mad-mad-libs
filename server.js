@@ -1,11 +1,5 @@
-//Features: user log in, crud, ajax, framework(React)
+//Features: user log in, crud, framework(React), Firebase
 //change 'crud', 'CRUD', or 'REPLACE' to app specific words
-
-/*-------------------------MAD MAD LIBS SPECIFIC INSTRUCTIONS-------------------------*/
-
-//The crud routes work, but they need to have their names switched out to our specific project and then adapted to fit our exact setup.
-//Also, we still need to figure out some user sign up stuff. Right now we can sign in and out with a fake account, but it's not connected to the database and there's no way to make a new user.
-//After the two issues above are fixed, we should have a pretty good starting point.
 
 'use strict'
 const express        = require('express');
@@ -28,7 +22,7 @@ const app            = express();
 //psql db_name_here < node_modules/connect-pg-simple/table.sql
 
 /*------------------Bundle Command------------------*/
-//check for if app.js is actual entry point
+//check to see if app.js is actual entry point
 
 //./node_modules/browserify/bin/cmd.js -t [ babelify --presets [react es2015 ] ] public/js/app.js -o public/js/bundle.js -d
 
