@@ -24,14 +24,24 @@ export default React.createClass({
         def.push(data.definitions[index].text);
       })
       // def = def.toString();
-      console.log(def);
+      // console.log(def);
       this.setState({def: def});
+      var eg = [];
+      data.examples.forEach((el,index,arr) => {
+        eg.push(data.examples[index].text);
+      })
+      this.setState({eg: eg});
     });
   },
 
   renderDef: function(el,index, arr) {
     return(
-      <Def details={this.state.def[index]} />
+      <DERender details={this.state.def[index]} />
+    )
+  },
+  renderEg: function(el, index, arr) {
+    return(
+      <DERender details={this.state.eg[index]} />
     )
   },
 
@@ -39,15 +49,23 @@ export default React.createClass({
 
     return(
       <div>
-        <h1> Word of the day </h1>
+        <h1> Word of the day: </h1>
         <h1><strong>{this.state.word}</strong></h1>
-        <h3>Definitions: {this.state.def}</h3>
+        {/*<h3>Definitions: {this.state.def}</h3>*/}
+        <div>
+          <h4>Definitions: </h4>
+          {this.state.def.map(this.renderDef)}
+        </div>
+        <div>
+          <h4>Examples: </h4>
+          {this.state.eg.map(this.renderEg)}
+        </div>
       </div>
     )
   }
 })
 
-const Def = React.createClass({
+const DERender = React.createClass({
   render: function(){
     return(
       <div>
