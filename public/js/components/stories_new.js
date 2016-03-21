@@ -19,15 +19,15 @@ export default React.createClass({
 
   componentWillMount: function(){
 
-    this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
+    this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/templates");
 
     var title = this.props.params.id
 
     this.firebaseRef.orderByChild("title").equalTo(title).on("child_added", function(dataSnapshot) {
-
+      console.log(dataSnapshot.val())
       this.state.template.push(dataSnapshot.val());
 
-      this.forceUpdate()
+      // this.forceUpdate()
 
     }.bind(this));
   },
@@ -36,6 +36,7 @@ export default React.createClass({
     event.preventDefault()
 
     var userRef = new Firebase('https://crackling-torch-879.firebaseio.com/');
+    var storiesRef = new Firebase('https://amber-heat-1866.firebaseio.com/stories');
 
     var oldStoryArray = []
     var newStoryArray = []
@@ -56,14 +57,14 @@ export default React.createClass({
       }
 
     newStoryText = newStoryArray.join(' ');
+
   }.bind(this))
 
-
-  var newData = this.firebaseRef.push({
+  var newData = storiesRef.push({
     story: newStoryText,
     user: userRef.getAuth().uid
   });
-  // console.log(newStoryText)
+
   var dataID = newData.key();
   this.context.router.replace(`/stories/${dataID}`)
 
@@ -86,7 +87,7 @@ export default React.createClass({
   var storyText = this.state.template[0].text;
   var nouns = 0;
   var verbs = 0;
-
+  console.log("uuuuuhhhm "+ storyText)
   var textArray = storyText.split(' ').forEach(function(element, index){
 
     if(element === "_noun_"){

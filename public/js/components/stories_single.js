@@ -13,7 +13,7 @@ export default React.createClass({
 
       var id = this.props.params.id
 
-      this.firebaseRef = new Firebase(`https://amber-heat-1866.firebaseio.com/${id}`);
+      this.firebaseRef = new Firebase(`https://amber-heat-1866.firebaseio.com/stories/${id}`);
       this.firebaseRef.on("child_added", function(dataSnapshot) {
         this.state.story.push(dataSnapshot.val());
         this.forceUpdate()
