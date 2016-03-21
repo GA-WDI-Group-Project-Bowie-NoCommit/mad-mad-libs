@@ -9,10 +9,10 @@ import Stories from './components/stories.js'
 import StoriesN from './components/stories_new.js'
 import StoriesS from './components/stories_single.js'
 import StoriesM from './components/stories_mine.js'
+import StoriesA from './components/stories_all.js'
 import TemplatesN from './components/templates_new.js'
 import TemplatesE from './components/templates_edit.js'
 import TemplatesA from './components/templates_all.js'
-import TemplateO from './components/template_options.js'
 
 import Meta from './components/meta.js'
 
@@ -38,34 +38,19 @@ let Nav = React.createClass({
         <div className="nav">
           <div className="header"><Link to="/"><header>Mad Mad Libs</header> </Link>  </div>
           <p></p>
-          <div> <Link to="/stories/options"><div>Stories</div></Link>        </div>
-          <div> <Link to="/templates/new"><div>Templates</div></Link>  </div>
-          {/*}<div> <Link to="/stories"><div>Read</div></Link>          </div> */}
-          <div> <Link to="/Meta"><div>Meta</div></Link>             </div>
+          <div> <Link to="/stories/"><div>Stories</div></Link>        </div>
+          <div> <Link to="/templates/"><div>Templates</div></Link>  </div>
+          <div> <Link to="/meta"><div>Meta</div></Link>             </div>
           <div> <Link to="/signup"><div>Sign Up</div></Link>        </div>
           <div> <Link to="/login"><div>Login</div></Link>           </div>
           <div> <Link to="/logout"><div>Log out</div></Link>        </div>
 
         </div>
-        <App />
           {this.props.children}
       </div>
     )
   }
 })
-
-let App = React.createClass({
-  render: function() {
-    return (
-        <div>
-
-
-
-        </div>
-    );
-  }
-});
-
 
 //I'm playing around here!!!
 var NotFound = React.createClass({
@@ -90,16 +75,14 @@ render((
         <Route path="/login" component={Login} />
         <Route path="/logout" component={Logout} />
 
-        <Route path="/stories/options" component={TemplateO} />
-        <Route path="/templates" component={TemplatesA} />
-        <Route path="/templates/:id/story/new" component={StoriesN} />
-        {/*<Route path="/my/stories" component={} />*/}
-        <Route path="/story/:id" component={StoriesS} />
-        <Route path="/templates/new" component={TemplatesN} />
-        {/*<Route path="/my/templates" component={} />*/}
         <Route path="/stories" component={Stories} />
+        <Route path="/stories/new/templates/:id" component={StoriesN} />
+        <Route path="/story/:id" component={StoriesS} />
         <Route path="/stories/mine" component={StoriesM} />
-        <Route path="/my/templates/:id/edit" component={TemplatesE} />
+        <Route path="/stories/all" component={StoriesA} />
+        <Route path="/templates" component={TemplatesA} />
+        <Route path="/templates/new" component={TemplatesN} />
+        <Route path="/templates/:id/edit" component={TemplatesE} />
         <Route path="/meta" component={Meta} />
         <Route path="/form" component={Form} /> {/*not a real Route*/}
         <Route path="/welcome" component={Welcome} />
