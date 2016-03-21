@@ -41,9 +41,9 @@ let Nav = React.createClass({
         <div className="nav">
           <div className="header"><Link to="/"><header>Mad Mad Libs</header> </Link>  </div>
           <p></p>
-          <div> <Link to="/stories/"><div>Stories</div></Link>        </div>
-          <div> <Link to="/templates/"><div>Templates</div></Link>  </div>
-          <div> <Link to="/meta"><div>Meta</div></Link>             </div>
+          <div className="storiesnav"> <Link to="/stories/"><div>Stories</div></Link>        </div>
+          <div className="templatesnav"> <Link to="/templates/"><div>Templates</div></Link>  </div>
+          <div className="metanav"> <Link to="/meta"><div>Meta</div></Link>             </div>
           <div> <Link to="/signup"><div>Sign Up</div></Link>        </div>
           <div> <Link to="/login"><div>Login</div></Link>           </div>
           <div> <Link to="/logout"><div>Log out</div></Link>        </div>
