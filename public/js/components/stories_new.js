@@ -8,8 +8,8 @@ export default React.createClass({
   getInitialState: function(){
     return{
       template: [],
-      nouns: [],
-      verbs: []
+      nouns: 0,
+      verbs: 0
     }
   },
 
@@ -59,9 +59,11 @@ export default React.createClass({
     if(element === "_noun_"){
       nouns++
       thing.push(<input ref={`noun${nouns}`} type="text" placeholder="Noun" />)
+      this.state.nouns = nouns
     } else if (element === "_verb_"){
       verbs++
       thing.push(<input ref={`verb${verbs}`} type="text" placeholder="Verb" />)
+      this.state.verbs = verbs
     }
 
   })
@@ -88,12 +90,7 @@ export default React.createClass({
         {this.renderTitle()}
           <div className="form" style={style}>
             <form ref="storyForm" onSubmit={this.handleSubmit}>
-<<<<<<< HEAD
               {this.renderTemplate()}
-=======
-              <input ref="noun1" type="text" className="noun" placeholder="Noun" />
-              <input ref="verb2" type="text" className="verb" placeholder="Verb" />
->>>>>>> c76eec0c17c92bc9aa944a822fd0755da7244121
               <button type="submit">Form Button</button>
             </form>
           </div>
