@@ -13,6 +13,9 @@ export default React.createClass({
     }
   },
 
+  contextTypes: {
+    router: React.PropTypes.object
+  },
   componentWillMount: function(){
 
     this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
@@ -32,6 +35,8 @@ export default React.createClass({
 
   handleSubmit: function(event){
     event.preventDefault()
+
+    var userRef = new Firebase('https://crackling-torch-879.firebaseio.com/');
 
     var oldStoryArray = []
     var newStoryArray = []
@@ -55,11 +60,13 @@ export default React.createClass({
   }.bind(this))
 
 
-  this.firebaseRef.push({
-    story: newStoryText
-    //put user id in here
+  var newData = this.firebaseRef.push({
+    story: newStoryText,
+    user: userRef.getAuth().uid
   });
-  console.log(newStoryText)
+  // console.log(newStoryText)
+  var dataID = newData.key();
+  this.context.router.replace(`/stories/${dataID}`)
 
   },
 
