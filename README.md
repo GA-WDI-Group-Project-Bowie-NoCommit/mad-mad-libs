@@ -3,6 +3,8 @@
 #### Project Vision Statement
 To create a mad-lib community.
 
+Link: mad-mad-libs.herokuapp.com
+
 ---
 
 #### User Stories
