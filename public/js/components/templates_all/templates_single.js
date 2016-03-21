@@ -6,8 +6,7 @@ export default React.createClass({
 
     return(
       <div className="card" className="stories">
-        <Link to={`templates/${this.props.template.title}/story/new`}>{this.props.template.title}</Link>
-
+        <Link to={`/stories/new/templates/${this.props.template.title}`}>{this.props.template.title}</Link>
       </div>
     )
   }
