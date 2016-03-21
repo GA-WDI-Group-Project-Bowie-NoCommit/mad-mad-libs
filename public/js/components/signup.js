@@ -80,12 +80,12 @@ export default React.createClass({
       return(
         <div>
         <div><Link to="/">Home</Link></div>
-        <div>
+        <div className="signup">
         <form ref="signupform" onSubmit={this.handleSubmit}>
         <input ref="email" placeholder="email" /><br/>
         <input ref="password" type="password" placeholder="password" /><br/>
         <input ref="name" placeholder="Name" /><br/>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="submitbutton" />
         </form>
         </div>
 
