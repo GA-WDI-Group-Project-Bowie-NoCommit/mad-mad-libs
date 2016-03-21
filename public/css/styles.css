@@ -331,9 +331,24 @@ textarea:focus {
  box-shadow:1px 2px 3px 1px #666;
  align-self: stretch;
  justify-content: center;
- margin-left:30px;
+ margin-left:50px;
+ max-width:980px;
 }
 
 #defofday div {
   /*box-shadow:1px 2px 3px 1px #666;*/
+
+}
+#defofday h1 {
+  color:white;
+  display: inline-block;
+  margin-left: 350px;
+  font-size: 3.5em;
+
+}
+
+#defofday h2 {
+  /*color:white;
+  margin-left:200px;*/
+
 }
