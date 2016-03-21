@@ -18,12 +18,7 @@ export default React.createClass({
 
       this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
       this.firebaseRef.on("child_added", function(dataSnapshot) {
-        console.log(dataSnapshot.key());
-        console.log(dataSnapshot.val());
-        console.log(dataSnapshot.val().title);
         this.state.templates.push(dataSnapshot.val());
-
-console.log('hello from templates_all')
 
         this.setState({
           items: this.state.templates
