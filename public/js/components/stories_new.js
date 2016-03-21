@@ -19,15 +19,13 @@ export default React.createClass({
 
   componentWillMount: function(){
 
-    this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
+    this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/templates");
 
     var title = this.props.params.id
 
     this.firebaseRef.orderByChild("title").equalTo(title).on("child_added", function(dataSnapshot) {
 
       this.state.template.push(dataSnapshot.val());
-
-      this.forceUpdate()
 
     }.bind(this));
   },
@@ -36,34 +34,39 @@ export default React.createClass({
     event.preventDefault()
 
     var userRef = new Firebase('https://crackling-torch-879.firebaseio.com/');
+    var storiesRef = new Firebase('https://amber-heat-1866.firebaseio.com/stories');
 
     var oldStoryArray = []
     var newStoryArray = []
     var oldStoryText = this.state.template[0].text;
     var newStoryText;
+    var nouns = 0;
+    var verbs = 0;
 
     var oldStoryArray = oldStoryText.split(' ').forEach(function(element){
 
       switch(element){
         case '_noun_':
-          newStoryArray.push(this.refs['noun1'].value)
+          nouns++
+          newStoryArray.push(this.refs[`noun${nouns}`].value)
           break;
         case '_verb_':
-          newStoryArray.push(this.refs['verb1'].value)
+          verbs++
+          newStoryArray.push(this.refs[`verb${verbs}`].value)
           break;
         default:
           newStoryArray.push(element)
       }
 
     newStoryText = newStoryArray.join(' ');
+
   }.bind(this))
 
-
-  var newData = this.firebaseRef.push({
+  var newData = storiesRef.push({
     story: newStoryText,
     user: userRef.getAuth().uid
   });
-  // console.log(newStoryText)
+
   var dataID = newData.key();
   this.context.router.replace(`/stories/${dataID}`)
 
@@ -82,7 +85,7 @@ export default React.createClass({
 
   renderTemplate: function(){
 
-  var thing = []
+  var inputs = []
   var storyText = this.state.template[0].text;
   var nouns = 0;
   var verbs = 0;
@@ -91,11 +94,11 @@ export default React.createClass({
 
     if(element === "_noun_"){
       nouns++
-      thing.push(<input ref={`noun${nouns}`} type="text" placeholder="Noun" />)
+      inputs.push(<input key={`noun${nouns}`} ref={`noun${nouns}`} type="text" placeholder="Noun" />)
       this.state.nouns = nouns
     } else if (element === "_verb_"){
       verbs++
-      thing.push(<input ref={`verb${verbs}`} type="text" placeholder="Verb" />)
+      inputs.push(<input key={`verb${verbs}`}ref={`verb${verbs}`} type="text" placeholder="Verb" />)
       this.state.verbs = verbs
     }
 
@@ -103,7 +106,7 @@ export default React.createClass({
 
   return(
     <div>
-      {thing}
+      {inputs}
     </div>
   )
 

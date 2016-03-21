@@ -90,6 +90,18 @@ header {
   align-self:center;
 
 }
+
+.storiesnav a:hover {
+  color: #3e67ab;
+}
+
+.templatesnav a:hover {
+  color: #30a393;
+}
+
+.metanav a:hover {
+  color: #E9a325;
+}
 /***********************************************************
                             Forms
 ***********************************************************/
@@ -104,11 +116,31 @@ form {
 
 }
 
-.form input {
+input {
   padding:5px;
-  margin-right:10px;
-  margin:auto;
+  margin-left:10px;
+  margin-top:15px;
+  margin-bottom:5px;
 
+}
+.signup {
+  background-color: rgba(137,128,122, 1);
+  box-shadow:1px 2px 3px 1px #666;
+}
+
+.submitbutton {
+  background-color:#ffe58f;
+  padding:5px;
+  border-radius:12px;
+  transform: skewX(-20deg);
+  border-style:groove;
+  border-color:black;
+  box-shadow:1px 1px 1px 1px #666;
+  margin-left:40px;
+}
+
+.submitbutton:hover {
+  background-color:#ffd64c;
 }
 
 button {
@@ -119,6 +151,7 @@ button {
   border-style:groove;
   border-color:black;
   box-shadow:1px 1px 1px 1px #666;
+
 }
 
 button:hover {
@@ -289,8 +322,8 @@ textarea:focus {
 
 }
 
-.stories {
-  background-color: #25509B;
+.template {
+  background-color: #adeee5;
   display: inline-block;
   padding:15px;
   margin:10px;
@@ -303,11 +336,11 @@ textarea:focus {
   max-height: 30px;
 }
 
-.stories:nth-child(even){
+.templates:nth-child(even){
   background-color:#5d84C5;
 }
 
-.stories a {
+.templates a {
   color:white;
 }
 
@@ -321,19 +354,40 @@ textarea:focus {
 
 
 /***********************************************************
-                  Templates and Template Cards
-                  https://css-tricks.com/examples/ShapesOfCSS/
+                  Welcome Page
 ***********************************************************/
-
+.welcome {
+  background-color: #FF964c;
+  max-width:980px;
+  min-height:100px;
+  box-shadow:1px 2px 3px 1px #666;
+  margin-left:50px;
+  margin-bottom:30px;
+}
 
 #defofday {
  background-color: #FFBD8F;
  box-shadow:1px 2px 3px 1px #666;
  align-self: stretch;
  justify-content: center;
- margin-left:30px;
+ margin-left:50px;
+ max-width:980px;
 }
 
 #defofday div {
   /*box-shadow:1px 2px 3px 1px #666;*/
+
+}
+#defofday h1 {
+  color:white;
+  display: inline-block;
+  margin-left: 350px;
+  font-size: 3.5em;
+
+}
+
+#defofday h2 {
+  /*color:white;
+  margin-left:200px;*/
+
 }

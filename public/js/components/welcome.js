@@ -45,6 +45,9 @@ export default React.createClass({
   render: function(){
 
     return(
+      <div>
+      <div className="welcome"> <h2>Welcome to Mad Mad Libs! </h2><h4>You can fill out a mad-lib, read other’s completed Mad Libs, create your own Mad Lib or participate in the Meta-Mad Lib. </h4>
+      </div>
       <div id="defofday">
         <h2> Word of the day: </h2>
         <h1><strong>{this.state.word}</strong></h1>
@@ -56,6 +59,7 @@ export default React.createClass({
           <h4>Examples: </h4>
           {this.state.eg.map(this.renderEg)}
         </div>
+      </div>
       </div>
     )
   }

@@ -16,7 +16,6 @@ import TemplatesM from './components/templates_mine.js'
 import TemplatesN from './components/templates_new.js'
 import TemplatesE from './components/templates_edit.js'
 
-
 import Meta from './components/meta.js'
 
 import Login from './components/login.js'
@@ -27,10 +26,7 @@ import Welcome from './components/welcome.js'
 
 import Form from './components/form.js'
 
-//added error file
-// import {} from 'dotenv/config'
 import Error from './components/error.js'
-// dotenv.config();
 
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
@@ -41,9 +37,9 @@ let Nav = React.createClass({
         <div className="nav">
           <div className="header"><Link to="/"><header>Mad Mad Libs</header> </Link>  </div>
           <p></p>
-          <div> <Link to="/stories/"><div>Stories</div></Link>        </div>
-          <div> <Link to="/templates/"><div>Templates</div></Link>  </div>
-          <div> <Link to="/meta"><div>Meta</div></Link>             </div>
+          <div className="storiesnav"> <Link to="/stories/"><div>Stories</div></Link>        </div>
+          <div className="templatesnav"> <Link to="/templates/"><div>Templates</div></Link>  </div>
+          <div className="metanav"> <Link to="/meta"><div>Meta</div></Link>             </div>
           <div> <Link to="/signup"><div>Sign Up</div></Link>        </div>
           <div> <Link to="/login"><div>Login</div></Link>           </div>
           <div> <Link to="/logout"><div>Log out</div></Link>        </div>
@@ -55,7 +51,6 @@ let Nav = React.createClass({
   }
 })
 
-//I'm playing around here!!!
 var NotFound = React.createClass({
   render : function() {
     return (
@@ -63,7 +58,6 @@ var NotFound = React.createClass({
     )
   }
 })
-
 
 let $container = document.getElementById('container');
 
