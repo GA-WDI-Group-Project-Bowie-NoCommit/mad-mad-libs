@@ -14,6 +14,10 @@ export default React.createClass({
     }
   },
 
+  // contextTypes: {
+  //   router: React.PropTypes.object
+  // },
+
   componentWillMount: function(){
     if(userRef.getAuth()){
       var currentuser = userRef.getAuth().uid;
@@ -61,7 +65,7 @@ export default React.createClass({
         });
       }
     })
-
+    // this.context.router.replace('/');
   },
 
   render: function(){

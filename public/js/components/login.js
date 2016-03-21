@@ -14,6 +14,10 @@ export default React.createClass({
     }
   },
 
+  // contextTypes: {
+  //   router: React.PropTypes.object
+  // },
+
   componentWillMount: function(){   //load info from userInfo.
     if(userRef.getAuth()){
       var currentuser = userRef.getAuth().uid;
@@ -45,6 +49,7 @@ export default React.createClass({
       }
     })
     this.refs.loginform.reset();
+    // this.context.router.replace('/');
   },
 
   renderUser: function(key){

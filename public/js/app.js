@@ -34,24 +34,80 @@ import Error from './components/error.js'
 
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
+const userRef = new Firebase('https://crackling-torch-879.firebaseio.com/');
+
 let Nav = React.createClass({
+  getInitialState: function(){
+    return {
+      user: 'out'
+    }
+  },
+  componentWillMount: function(){
+    if(userRef.getAuth()){
+      this.setState({user: 'in'})
+    } else {
+      this.setState({user: 'out'});
+    }
+  },
+
+  // logIn: function() {
+  //
+  // },
+
   render: function () {
-    return(
-      <div>
+    // return(
+    //   <div>
+    //   <div className="nav">
+    //   <div className="header"><Link to="/"><header>Mad Mad Libs</header> </Link>  </div>
+    //   <p></p>
+    //   <div> <Link to="/stories/"><div>Stories</div></Link>        </div>
+    //   <div> <Link to="/templates/"><div>Templates</div></Link>  </div>
+    //   <div> <Link to="/meta"><div>Meta</div></Link>             </div>
+    //   <div> <AuthApp /> </div>
+    //   {/*<div> <Link to="/signup"><div>Sign Up</div></Link>        </div>*/}
+    //   {/*<div> <Link to="/login"><div>Login</div></Link>           </div>*/}
+    //   {/*<div> <Link to="/logout"><div>Log out</div></Link>        </div>*/}
+    //
+    //   </div>
+    //   {this.props.children}
+    //   </div>
+    // )
+    if(this.state.user==='in'){
+      return(
+        <div>
         <div className="nav">
-          <div className="header"><Link to="/"><header>Mad Mad Libs</header> </Link>  </div>
-          <p></p>
-          <div> <Link to="/stories/"><div>Stories</div></Link>        </div>
-          <div> <Link to="/templates/"><div>Templates</div></Link>  </div>
-          <div> <Link to="/meta"><div>Meta</div></Link>             </div>
-          <div> <Link to="/signup"><div>Sign Up</div></Link>        </div>
-          <div> <Link to="/login"><div>Login</div></Link>           </div>
-          <div> <Link to="/logout"><div>Log out</div></Link>        </div>
+        <div className="header"><Link to="/"><header>Mad Mad Libs</header> </Link>  </div>
+        <p></p>
+        <div> <Link to="/stories/"><div>Stories</div></Link>        </div>
+        <div> <Link to="/templates/"><div>Templates</div></Link>  </div>
+        <div> <Link to="/meta"><div>Meta</div></Link>             </div>
+        {/*<div> <Link to="/signup"><div>Sign Up</div></Link>        </div>*/}
+        {/*<div> <Link to="/login"><div>Login</div></Link>           </div>*/}
+        <div> <Link to="/logout"><div>Log out</div></Link>        </div>
 
         </div>
-          {this.props.children}
-      </div>
-    )
+        {this.props.children}
+        </div>
+      )
+    } else {
+      return(
+        <div>
+        <div className="nav">
+        <div className="header"><Link to="/"><header>Mad Mad Libs</header> </Link>  </div>
+        <p></p>
+        <div> <Link to="/stories/"><div>Stories</div></Link>        </div>
+        <div> <Link to="/templates/"><div>Templates</div></Link>  </div>
+        <div> <Link to="/meta"><div>Meta</div></Link>             </div>
+        <div> <Link to="/signup"><div>Sign Up</div></Link>        </div>
+        <div> <Link to="/login"><div>Login</div></Link>           </div>
+        {/*<div> <Link to="/logout"><div>Log out</div></Link>        </div>*/}
+
+        </div>
+        {this.props.children}
+        </div>
+      )
+
+    }
   }
 })
 
@@ -98,3 +154,30 @@ render((
 
   </div>
 )  , $container);
+
+// const AuthApp = React.createClass({
+//   getInitialState: function(){
+//     return {
+//       user: ''
+//     }
+//   },
+//   componentWillMount: function(){
+//     if(userRef.getAuth()){
+//       this.setState({user: 'true'})
+//     };
+//     this.setState({user: ''});
+//   },
+//   render: function(){
+//     if(this.state.user === 'true'){
+//       return(
+//         <div><Link to="/logout"><div>Log out</div></Link></div>
+//       )
+//     }
+//     return(
+//       <div>
+//         <div> <Link to="/signup"><div>Sign Up</div></Link>        </div>
+//         <div> <Link to="/login"><div>Login</div></Link>           </div>
+//       </div>
+//     )
+//   }
+// })
