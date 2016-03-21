@@ -6,7 +6,6 @@ export default React.createClass({
     return(
       <div>
         {this.props.templates}
-
       </div>
     )
   }
