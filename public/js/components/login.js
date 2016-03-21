@@ -68,7 +68,7 @@ export default React.createClass({
         <form ref="loginform" onSubmit={this.handleSubmit}>
         <input ref="email" placeholder="email" /><br/>
         <input ref="password" placeholder="password" type="password" /><br/>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="submitbutton" />
         </form>
         </div>
         </div>

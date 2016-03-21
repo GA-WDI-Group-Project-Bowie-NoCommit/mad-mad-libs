@@ -63,7 +63,6 @@ export default React.createClass({
   var newData = this.storiesRef.push({
     story: newStoryText,
     user: userRef.getAuth().uid
-
   });
   // console.log(newStoryText)
   var dataID = newData.key();
