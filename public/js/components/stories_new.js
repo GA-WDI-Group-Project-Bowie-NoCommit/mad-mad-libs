@@ -16,6 +16,7 @@ export default React.createClass({
   contextTypes: {
     router: React.PropTypes.object
   },
+
   componentWillMount: function(){
 
     this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
@@ -26,9 +27,7 @@ export default React.createClass({
 
       this.state.template.push(dataSnapshot.val());
 
-      this.setState({
-        items: this.state.template
-      });
+      this.forceUpdate()
 
     }.bind(this));
   },
@@ -62,7 +61,8 @@ export default React.createClass({
 
   var newData = this.firebaseRef.push({
     story: newStoryText,
-    user: userRef.getAuth().uid
+    user: userRef.getAuth().uid,
+    title:
   });
   // console.log(newStoryText)
   var dataID = newData.key();

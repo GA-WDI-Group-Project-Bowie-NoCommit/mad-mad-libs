@@ -15,9 +15,8 @@ export default React.createClass({
 
       this.firebaseRef = new Firebase(`https://amber-heat-1866.firebaseio.com/${id}`);
       this.firebaseRef.on("child_added", function(dataSnapshot) {
-        console.log(dataSnapshot.val())
         this.state.story.push(dataSnapshot.val());
-        // this.forceUpdate()
+        this.forceUpdate()
 
       }.bind(this));
 
