@@ -9,6 +9,12 @@ const moment         = require('moment');
 const bodyParser     = require('body-parser');
 const app            = express();
 
+const request        = require('request');
+
+const wordnik  = require('./routes/wordnik');
+
+// const wotd           = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?api_key=';
+
 /*----------------COMMAND PROMPT COMMANDS --------------*/
 
 // npm install express morgan path moment body-parser pg-promise ejs bcrypt dotenv babelify babel-preset-react bebel-preset-es2015 browserify react react-dom react-router jquery --save
@@ -44,6 +50,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res)=>{
   res.sendFile('index.html');
 })
+
+// app.get('/wotd', (req, res) => {
+//   request(`${wotd}${process.env.API}`, (error, response, body) ={
+//     console.log(response);
+//   })
+//   // res.json()
+// })
+
+app.use('/wordnik', wordnik);
 
 app.get ('*', (req, res)=>{
   res.sendFile(__dirname + '/public/index.html');
