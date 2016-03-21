@@ -80,7 +80,7 @@ render((
 
         <Route path="/stories" component={Stories} />
         <Route path="/stories/new/templates/:id" component={StoriesN} />
-        <Route path="/story/:id" component={StoriesS} />
+        <Route path="/stories/:id" component={StoriesS} />
         <Route path="/stories/mine" component={StoriesM} />
         <Route path="/stories/all" component={StoriesA} />
         <Route path="/templates" component={Templates} />
