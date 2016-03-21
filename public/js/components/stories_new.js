@@ -61,8 +61,7 @@ export default React.createClass({
 
   var newData = this.firebaseRef.push({
     story: newStoryText,
-    user: userRef.getAuth().uid,
-    title:
+    user: userRef.getAuth().uid
   });
   // console.log(newStoryText)
   var dataID = newData.key();

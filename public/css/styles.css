@@ -90,6 +90,18 @@ header {
   align-self:center;
 
 }
+
+.storiesnav a:hover {
+  color: #3e67ab;
+}
+
+.templatesnav a:hover {
+  color: #30a393;
+}
+
+.metanav a:hover {
+  color: #E9a325;
+}
 /***********************************************************
                             Forms
 ***********************************************************/
@@ -104,11 +116,31 @@ form {
 
 }
 
-.form input {
+input {
   padding:5px;
-  margin-right:10px;
-  margin:auto;
+  margin-left:10px;
+  margin-top:15px;
+  margin-bottom:5px;
 
+}
+.signup {
+  background-color: rgba(137,128,122, 1);
+  box-shadow:1px 2px 3px 1px #666;
+}
+
+.submitbutton {
+  background-color:#ffe58f;
+  padding:5px;
+  border-radius:12px;
+  transform: skewX(-20deg);
+  border-style:groove;
+  border-color:black;
+  box-shadow:1px 1px 1px 1px #666;
+  margin-left:40px;
+}
+
+.submitbutton:hover {
+  background-color:#ffd64c;
 }
 
 button {
@@ -119,6 +151,7 @@ button {
   border-style:groove;
   border-color:black;
   box-shadow:1px 1px 1px 1px #666;
+
 }
 
 button:hover {
@@ -322,7 +355,6 @@ textarea:focus {
 
 /***********************************************************
                   Templates and Template Cards
-                  https://css-tricks.com/examples/ShapesOfCSS/
 ***********************************************************/
 
 
