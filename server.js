@@ -51,14 +51,7 @@ app.get('/', (req, res)=>{
   res.sendFile('index.html');
 })
 
-// app.get('/wotd', (req, res) => {
-//   request(`${wotd}${process.env.API}`, (error, response, body) ={
-//     console.log(response);
-//   })
-//   // res.json()
-// })
-
-app.use('/wordnik', wordnik);
+app.use('/wordnik', wordnik);   //reroute if it hit wordnik route.
 
 app.get ('*', (req, res)=>{
   res.sendFile(__dirname + '/public/index.html');

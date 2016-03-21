@@ -8,7 +8,6 @@ const randomWordErr = 'http://api.wordnik.com:80/v4/words.json/randomWord?api_ke
 
 wordnik.route('/wotd')
   .get(getWotd, (req,res)=>{
-    // console.log(res.rows);
     res.json(res.rows);
   });
 
@@ -19,6 +18,7 @@ wordnik.route('/randomerror')
 
 module.exports = wordnik;
 
+//callback for getWotd
 function getWotd(req, res, next) {
   request(`${wotdlink}${process.env.API}`, (err, response, body) => {
     // console.log(body);
@@ -27,7 +27,7 @@ function getWotd(req, res, next) {
     next();
   })
 };
-
+//callback for getRandomError
 function getRandomError(req, res, next) {
   request(`${randomWordErr}${process.env.API}`, (err, response, body) => {
     var randomerr = (JSON.parse(body));
