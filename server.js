@@ -1,5 +1,4 @@
 //Features: user log in, crud, framework(React), Firebase
-//change 'crud', 'CRUD', or 'REPLACE' to app specific words
 
 'use strict'
 const express        = require('express');
@@ -12,25 +11,6 @@ const app            = express();
 const request        = require('request');
 
 const wordnik  = require('./routes/wordnik');
-
-// const wotd           = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?api_key=';
-
-/*----------------COMMAND PROMPT COMMANDS --------------*/
-
-// npm install express morgan path moment body-parser pg-promise ejs bcrypt dotenv babelify babel-preset-react bebel-preset-es2015 browserify react react-dom react-router jquery --save
-
-/*------------------Conditional Modules------------------*/
-
-// npm install express-session connect-pg-simple lodash method-override pg --save
-
-/*------------------Conditional User Sessions (for connect-pg-simple) Command------------------*/
-
-//psql db_name_here < node_modules/connect-pg-simple/table.sql
-
-/*------------------Bundle Command------------------*/
-//check to see if app.js is actual entry point
-
-//./node_modules/browserify/bin/cmd.js -t [ babelify --presets [react es2015 ] ] public/js/app.js -o public/js/bundle.js -d
 
 if(!process.env.NODE_ENV){
   require('dotenv').config();
@@ -51,7 +31,7 @@ app.get('/', (req, res)=>{
   res.sendFile('index.html');
 })
 
-app.use('/wordnik', wordnik);   //reroute if it hit wordnik route.
+app.use('/wordnik', wordnik);
 
 app.get ('*', (req, res)=>{
   res.sendFile(__dirname + '/public/index.html');
