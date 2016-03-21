@@ -48,7 +48,7 @@ export default React.createClass({
   render: function(){
 
     return(
-      <div>
+      <div id="defofday">
         <h1> Word of the day: </h1>
         <h1><strong>{this.state.word}</strong></h1>
         {/*<h3>Definitions: {this.state.def}</h3>*/}

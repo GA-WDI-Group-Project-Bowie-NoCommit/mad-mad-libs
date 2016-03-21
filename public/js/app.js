@@ -10,9 +10,12 @@ import StoriesN from './components/stories_new.js'
 import StoriesS from './components/stories_single.js'
 import StoriesM from './components/stories_mine.js'
 import StoriesA from './components/stories_all.js'
+import Templates from './components/templates.js'
+import TemplatesA from './components/templates_all.js'
+import TemplatesM from './components/templates_mine.js'
 import TemplatesN from './components/templates_new.js'
 import TemplatesE from './components/templates_edit.js'
-import TemplatesA from './components/templates_all.js'
+
 
 import Meta from './components/meta.js'
 
@@ -80,7 +83,8 @@ render((
         <Route path="/story/:id" component={StoriesS} />
         <Route path="/stories/mine" component={StoriesM} />
         <Route path="/stories/all" component={StoriesA} />
-        <Route path="/templates" component={TemplatesA} />
+        <Route path="/templates" component={Templates} />
+        <Route path="templates_mine" component={TemplatesM} />
         <Route path="/templates/new" component={TemplatesN} />
         <Route path="/templates/:id/edit" component={TemplatesE} />
         <Route path="/meta" component={Meta} />
