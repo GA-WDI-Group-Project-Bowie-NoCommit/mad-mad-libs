@@ -322,8 +322,8 @@ textarea:focus {
 
 }
 
-.stories {
-  background-color: #25509B;
+.template {
+  background-color: #adeee5;
   display: inline-block;
   padding:15px;
   margin:10px;
@@ -336,11 +336,11 @@ textarea:focus {
   max-height: 30px;
 }
 
-.stories:nth-child(even){
+.templates:nth-child(even){
   background-color:#5d84C5;
 }
 
-.stories a {
+.templates a {
   color:white;
 }
 
@@ -354,9 +354,16 @@ textarea:focus {
 
 
 /***********************************************************
-                  Templates and Template Cards
+                  Welcome Page
 ***********************************************************/
-
+.welcome {
+  background-color: #FF964c;
+  max-width:980px;
+  min-height:100px;
+  box-shadow:1px 2px 3px 1px #666;
+  margin-left:50px;
+  margin-bottom:30px;
+}
 
 #defofday {
  background-color: #FFBD8F;

@@ -9,8 +9,6 @@ export default React.createClass({
 
     return(
       <div>
-        <div>Read everyone’s stories or your own!</div>
-
         <div className="everyonesstories"> <Link to="/stories/all">Everyone’s stories</Link>  </div>
         <div className="mystories"> <Link to="/stories/mine">My stories</Link>  </div>
         <div className ="cardscontainer"><TemplatesA /> </div>

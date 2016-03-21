@@ -37,7 +37,7 @@ export default React.createClass({
     render: function(){
       return(
         <div>
-          this is the template component
+          Make your own version of a story!
           <AllTemplates templates={Object.keys(this.state.templates).map(this.renderTemplates)} />
           {this.props.children}
         </div>
