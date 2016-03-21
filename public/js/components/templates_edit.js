@@ -9,7 +9,7 @@ export default React.createClass({
 
     return(
       <div>
-        <div>Edit a template</div>
+        <div>View Edit and Delete template</div>
 
       </div>
     )

@@ -2,8 +2,9 @@
                             General
 ***********************************************************/
 * {
-  margin: 0;
-  padding: 0;
+  border-radius: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+    /*font-family: 'Poiret One', cursive;*/
 }
 
 body {
@@ -12,12 +13,12 @@ background: url(../assets/seamless_paper_texture/seamless_paper_texture.png) , r
 }
 
 a {
-  color: #500;
+  color: #361600;
   text-decoration: none;
   font-family: 'Poiret One', cursive;
   font-weight: bold;
   font-size: 1.5em;
-  text-shadow: .5px .5px #aaa;
+  /*text-shadow: .5px .5px #aaa;*/
 }
 
 a:hover {
@@ -44,34 +45,38 @@ div {
 ***********************************************************/
 .nav {
   max-height: 300px;
-  min-width: 800px;
   width:99%;
   margin-top: -20px;
   margin-left: -15px;
   margin-right:-15px;
   margin-bottom:20px;
   display:block;
-  align-items:center;
+  /*align-items:center;*/
   font-size: 0.8em;
   flex-direction: row;
   padding:0 50px;
-  background-color: #FFCDAA;
+  background-color: #ffe6ba;
   box-shadow:1px 2px 3px 1px #666;
+  border-radius:5px;
+  color: #3e1a00;
 
 }
 
 .nav div {
   display:inline-block;
   align-items: center;
+  margin-right: 40px;
 }
 
 header {
-  font-size:2.5em;
+  font-size:2em;
   margin-bottom: 10px;
+  margin-left:210px;
   font-family: 'Lobster', cursive;
   text-shadow:1px 2px 3px #666;
   text-align: center;
   display:block;
+
 }
 
 .header {
@@ -142,11 +147,54 @@ textarea:focus {
   background-color: dodgerblue;
 }
 /***********************************************************
-                      Cards
+                  Story and Story Cards
 ***********************************************************/
+.everyonesstories {
+  background-color: #b5caef;
+  display: inline-block;
+  padding:10px;
+  margin-right:50px;
+  margin-left:300px;
+  font-weight:bold;
+  box-shadow:1px 2px 3px 1px #666;
+}
+
+.mystories {
+  display: inline-block;
+  background-color:#3e67ab;
+  padding:10px;
+  box-shadow:1px 2px 3px 1px #666;
+}
+
+.everyonesstories a{
+ color: #132340;
+}
+.everyonesstories a:hover {
+  color:#151a23;
+}
+
+.everyonesstories a{
+  /*color:;*/
+  color:#152c55;
+}
+
+.mystories a {
+  color:#152c55;
+  font-size:1.5em;
+}
+
+.mystories a:hover {
+  color:#151a23;
+}
+
 .cardscontainer {
   display:flex;
+  flex-wrap: wrap;
+  max-width:800px;
+  min-height:800px;
+    /*box-shadow:1px 2px 3px 1px #666;*/
 }
+
 
 .card {
   background-color: dodgerblue;
@@ -154,4 +202,28 @@ textarea:focus {
   padding:15px;
   margin:10px;
   box-shadow:1px 2px 3px 1px #666;
+  border-radius: 5px;
+
+}
+
+.stories {
+  background-color: #25509B;
+  display: inline-block;
+  padding:15px;
+  margin:10px;
+  box-shadow:1px 2px 3px 1px #666;
+  border-radius: 5px;
+  color:white;
+  display:flex;
+  flex-wrap:wrap;
+  max-width:400px;
+  max-height: 30px;
+}
+
+.stories:nth-child(even){
+  background-color:#5d84C5;
+}
+
+.stories a {
+  color:white;
 }
