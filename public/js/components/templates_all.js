@@ -18,11 +18,11 @@ export default React.createClass({
 
       this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
       this.firebaseRef.on("child_added", function(dataSnapshot) {
-        this.state.templates.push(dataSnapshot.val());
 
-        this.setState({
-          items: this.state.templates
-        });
+        if (dataSnapshot.val().title){ //should probably change from checking title to something else seeing as we'll want to add a title to the completed stories.
+          this.state.templates.push(dataSnapshot.val());
+        }
+        this.forceUpdate()
 
       }.bind(this));
 
