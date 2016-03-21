@@ -13,6 +13,10 @@ export default React.createClass({
     }
   },
 
+  contextTypes: {
+    router: React.PropTypes.object
+  },
+
   componentWillMount: function(){
 
     this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");

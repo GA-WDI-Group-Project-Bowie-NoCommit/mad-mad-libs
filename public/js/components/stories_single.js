@@ -3,7 +3,23 @@ import { Link } from 'react-router'
 
 export default React.createClass({
 
+  getInitialState: function(){
+    return{
+      story: []
+    }
+  },
 
+  // componentWillMount: function(){
+  //
+  //     var id = this.props.params.id
+  //
+  //     this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
+  //     this.firebaseRef.orderByChild("story").equalTo(id)..on("child_added", function(dataSnapshot) {
+  //       this.state.story.push(dataSnapshot.val());
+  //
+  //     }.bind(this));
+  //
+  //   },
 
   render: function(){
 
