@@ -19,7 +19,7 @@ export default React.createClass({
 
   componentWillMount: function(){
 
-    this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/");
+    this.firebaseRef = new Firebase("https://amber-heat-1866.firebaseio.com/templates");
 
     var title = this.props.params.id
 
@@ -36,6 +36,7 @@ export default React.createClass({
     event.preventDefault()
 
     var userRef = new Firebase('https://crackling-torch-879.firebaseio.com/');
+    var storiesRef = new Firebase('https://amber-heat-1866.firebaseio.com/stories');
 
     var oldStoryArray = []
     var newStoryArray = []
@@ -59,7 +60,7 @@ export default React.createClass({
   }.bind(this))
 
 
-  var newData = this.firebaseRef.push({
+  var newData = this.storiesRef.push({
     story: newStoryText,
     user: userRef.getAuth().uid
 
