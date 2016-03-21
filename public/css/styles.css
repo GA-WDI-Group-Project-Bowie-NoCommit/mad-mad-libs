@@ -1,21 +1,339 @@
+/***********************************************************
+                            General
+***********************************************************/
 * {
-  margin: 0;
-  padding: 0;
+  border-radius: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+    /*font-family: 'Poiret One', cursive;*/
 }
 
 body {
-  /*background-color: #FAA;
-*/
-}
-div {
-  display: flex;
+font-family: 'Josefin Sans', sans-serif;
+background: url(../assets/seamless_paper_texture/seamless_paper_texture.png) , rgba(137,128,122, .9);
 }
 
 a {
-  color: #500;
+  color: #361600;
   text-decoration: none;
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
+  font-size: 1.5em;
+  /*text-shadow: .5px .5px #aaa;*/
 }
 
 a:hover {
   color: #d46a6a;
+}
+
+div {
+  padding: 5px;
+  margin: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/***********************************************************
+                            Container
+***********************************************************/
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width:94%;
+
+}
+/***********************************************************
+                            Nav Bar
+***********************************************************/
+.nav {
+  max-height: 300px;
+  width:99%;
+  margin-top: -20px;
+  margin-left: -15px;
+  margin-right:-15px;
+  margin-bottom:20px;
+  display:block;
+  /*align-items:center;*/
+  font-size: 0.8em;
+  flex-direction: row;
+  padding:0 50px;
+  background-color: #ffe6ba;
+  box-shadow:1px 2px 3px 1px #666;
+  border-radius:5px;
+  color: #3e1a00;
+
+}
+
+.nav div {
+  display:inline-block;
+  align-items: center;
+  margin-right: 40px;
+}
+
+header {
+  font-size:2em;
+  margin-bottom: 10px;
+  margin-left:210px;
+  font-family: 'Lobster', cursive;
+  text-shadow:1px 2px 3px #666;
+  text-align: center;
+  display:block;
+
+}
+
+.header {
+  display:block;
+  font-size:2.5em;
+  margin-bottom: -10px;
+  margin-left: 50px;
+  font-family: 'Lobster', cursive;
+  align-self:center;
+
+}
+/***********************************************************
+                            Forms
+***********************************************************/
+
+form {
+  background-color: rgba(137,128,122, 1);
+}
+
+.form {
+  background-color: rgba(137,128,122, 1);
+  box-shadow:1px 2px 3px 1px #666;
+
+}
+
+.form input {
+  padding:5px;
+  margin-right:10px;
+  margin:auto;
+
+}
+
+button {
+  background-color:#ffe58f;
+  padding:5px;
+  border-radius:12px;
+  transform: skewX(-20deg);
+  border-style:groove;
+  border-color:black;
+  box-shadow:1px 1px 1px 1px #666;
+}
+
+button:hover {
+  background-color:#ffd64c;
+}
+
+textarea{
+  display:block;
+  min-width: 500px;
+  margin:5px;
+}
+
+textarea:focus {
+  border: .5px solid #ffe58f;
+}
+
+
+/***********************************************************
+                            Add Noun Verb Form
+***********************************************************/
+
+.noun {
+  display: block;
+
+}
+.verb {
+  display: block;
+  background-color: dodgerblue;
+}
+/***********************************************************
+                  Story and Story Cards
+***********************************************************/
+.everyonesstories {
+  background-color: #b5caef;
+  display: inline-block;
+  padding:10px;
+  margin-right:50px;
+  margin-left:300px;
+  font-weight:bold;
+  box-shadow:1px 2px 3px 1px #666;
+}
+
+.mystories {
+  display: inline-block;
+  background-color:#3e67ab;
+  padding:10px;
+  box-shadow:1px 2px 3px 1px #666;
+}
+
+.everyonesstories a{
+ color: #132340;
+}
+.everyonesstories a:hover {
+  color:#151a23;
+}
+
+.everyonesstories a{
+  /*color:;*/
+  color:#152c55;
+}
+
+.mystories a {
+  color:#152c55;
+  font-size:1.5em;
+}
+
+.mystories a:hover {
+  color:#151a23;
+}
+
+.cardscontainer {
+  display:flex;
+  flex-wrap: wrap;
+  max-width:800px;
+  /*min-height:800px;*/
+    /*box-shadow:1px 2px 3px 1px #666;*/
+}
+
+
+.card {
+  background-color: dodgerblue;
+  display: inline-block;
+  padding:15px;
+  margin:10px;
+  box-shadow:1px 2px 3px 1px #666;
+  border-radius: 5px;
+
+}
+
+.stories {
+  background-color: #25509B;
+  display: inline-block;
+  padding:15px;
+  margin:10px;
+  box-shadow:1px 2px 3px 1px #666;
+  border-radius: 5px;
+  color:white;
+  display:flex;
+  flex-wrap:wrap;
+  max-width:400px;
+  max-height: 30px;
+}
+
+.stories:nth-child(even){
+  background-color:#5d84C5;
+}
+
+.stories a {
+  color:white;
+}
+/***********************************************************
+                  Templates and Template Cards
+***********************************************************/
+.newtemplate {
+  background-color: #30a393;
+  display: inline-block;
+  padding:10px;
+  margin-right:50px;
+  margin-left:300px;
+  font-weight:bold;
+  box-shadow:1px 2px 3px 1px #666;
+}
+
+.mytemplates {
+  display: inline-block;
+  background-color:#79d8cb;
+  padding:10px;
+  box-shadow:1px 2px 3px 1px #666;
+}
+
+.newtemplate a{
+ color: #132340;
+}
+.everyonesstories a:hover {
+  color:#151a23;
+}
+
+.everyonesstories a{
+  /*color:;*/
+  color:#152c55;
+}
+
+.mytemplates a {
+  color:#152c55;
+  font-size:1.5em;
+}
+
+.mystories a:hover {
+  color:#151a23;
+}
+
+.cardscontainer {
+  display:flex;
+  flex-wrap: wrap;
+  max-width:800px;
+  /*min-height:800px;*/
+    /*box-shadow:1px 2px 3px 1px #666;*/
+}
+
+
+.card {
+  background-color: dodgerblue;
+  display: inline-block;
+  padding:15px;
+  margin:10px;
+  box-shadow:1px 2px 3px 1px #666;
+  border-radius: 5px;
+
+}
+
+.stories {
+  background-color: #25509B;
+  display: inline-block;
+  padding:15px;
+  margin:10px;
+  box-shadow:1px 2px 3px 1px #666;
+  border-radius: 5px;
+  color:white;
+  display:flex;
+  flex-wrap:wrap;
+  max-width:400px;
+  max-height: 30px;
+}
+
+.stories:nth-child(even){
+  background-color:#5d84C5;
+}
+
+.stories a {
+  color:white;
+}
+
+.templatescolortest {
+  display: inline-block;
+  background-color:#adeee5;
+  padding:10px;
+  box-shadow:1px 2px 3px 1px #666;
+}
+
+
+
+/***********************************************************
+                  Templates and Template Cards
+                  https://css-tricks.com/examples/ShapesOfCSS/
+***********************************************************/
+
+
+#defofday {
+ background-color: #FFBD8F;
+ box-shadow:1px 2px 3px 1px #666;
+ align-self: stretch;
+ justify-content: center;
+ margin-left:30px;
+}
+
+#defofday div {
+  /*box-shadow:1px 2px 3px 1px #666;*/
 }

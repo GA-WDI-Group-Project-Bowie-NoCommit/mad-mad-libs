@@ -1,168 +1,100 @@
 'use strict';
 
-const React          = require('react');
-const ReactDOM       = require('react-dom');
-const $              = require('jquery');
+import React from 'react'
+import { render } from 'react-dom'
+import { Link } from 'react-router'
 
-const TheComponent   = require('./components/component.js');
-const auth           = require('./components/auth_helpers');
-const ReactRouter    = require('react-router');
+import Auth from './components/auth.js'
+import Stories from './components/stories.js'
+import StoriesN from './components/stories_new.js'
+import StoriesS from './components/stories_single.js'
+import StoriesM from './components/stories_mine.js'
+import StoriesA from './components/stories_all.js'
+import Templates from './components/templates.js'
+import TemplatesA from './components/templates_all.js'
+import TemplatesM from './components/templates_mine.js'
+import TemplatesN from './components/templates_new.js'
+import TemplatesE from './components/templates_edit.js'
 
-const Router         = ReactRouter.Router;
-const Route          = ReactRouter.Route;
-const Link           = ReactRouter.Link;
-const browserHistory = ReactRouter.browserHistory;
 
-let App = React.createClass({
-  render: function() {
-    return (
-        <div>
-          <TheComponent name='Component'/>
+import Meta from './components/meta.js'
+
+import Login from './components/login.js'
+import Logout from './components/logout.js'
+import Signup from './components/signup.js'
+
+import Welcome from './components/welcome.js'
+
+import Form from './components/form.js'
+
+//added error file
+// import {} from 'dotenv/config'
+import Error from './components/error.js'
+// dotenv.config();
+
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+
+let Nav = React.createClass({
+  render: function () {
+    return(
+      <div>
+        <div className="nav">
+          <div className="header"><Link to="/"><header>Mad Mad Libs</header> </Link>  </div>
+          <p></p>
+          <div> <Link to="/stories/"><div>Stories</div></Link>        </div>
+          <div> <Link to="/templates/"><div>Templates</div></Link>  </div>
+          <div> <Link to="/meta"><div>Meta</div></Link>             </div>
+          <div> <Link to="/signup"><div>Sign Up</div></Link>        </div>
+          <div> <Link to="/login"><div>Login</div></Link>           </div>
+          <div> <Link to="/logout"><div>Log out</div></Link>        </div>
+
         </div>
-    );
-  }
-});
-
-const authComponent = React.createClass({
-  getInitialState() {
-    return {
-      loggedIn: auth.loggedIn()
-    }
-  },
-  updateAuth(loggedIn) {
-    this.setState({
-      loggedIn: loggedIn
-    })
-  },
-
-  componentWillMount() {
-    auth.onChange = this.updateAuth
-    auth.login()
-  },
-
-  render() {
-    return (
-      <div>
-        <ul>
-          <li>
-            {this.state.loggedIn ? (
-              <Link to="/logout">Log out</Link>
-            ) : (
-              <Link to="/login">Sign in</Link>
-            )}
-          </li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/dashboard">Dashboard</Link> (authenticated)</li>
-        </ul>
-        {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
+          {this.props.children}
       </div>
     )
   }
 })
 
-const Dashboard = React.createClass({
-  render() {
-    const token = auth.getToken()
-
-    return (
-      <div>
-        <h1>Dashboard</h1>
-        <p>You made it!</p>
-        <p>{token}</p>
-      </div>
-    )
-  }
-})
-
-const Login = React.createClass({
-
-  contextTypes: {
-    router: React.PropTypes.object.isRequired
-  },
-
-  getInitialState() {
-    return {
-      error: false
-    }
-  },
-
-  handleSubmit(event) {
-    event.preventDefault()
-
-    const email = this.refs.email.value
-    const pass = this.refs.pass.value
-
-    auth.login(email, pass, (loggedIn) => {
-      if (!loggedIn)
-        return this.setState({ error: true })
-
-      const { location } = this.props
-
-      if (location.state && location.state.nextPathname) {
-        this.context.router.replace(location.state.nextPathname)
-      } else {
-        this.context.router.replace('/')
-      }
-    })
-  },
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label><input ref="email" placeholder="email" defaultValue="joe@example.com" /></label>
-        <label><input ref="pass" placeholder="password" /></label> (hint: password1)<br />
-        <button type="submit">login</button>
-        {this.state.error && (
-          <p>Bad login information</p>
-        )}
-      </form>
-    )
-  }
-})
-
-const About = React.createClass({
-  render() {
-    return <h1>About</h1>
-  }
-})
-
-const Logout = React.createClass({
-  componentDidMount() {
-    auth.logout()
-  },
-
-  render() {
-    return <p>You are now logged out</p>
-  }
-})
-
-function requireAuth(nextState, replace) {
-  if (!auth.loggedIn()) {
-    replace({
-      pathname: '/login',
-      state: { nextPathname: nextState.location.pathname }
-    })
-  }
-}
-
+//I'm playing around here!!!
 var NotFound = React.createClass({
   render : function() {
-    return <h1>404: Not Found... sry</h1>
+    return (
+      <Error />
+    )
   }
 })
 
 
 let $container = document.getElementById('container');
 
-ReactDOM.render(<div>
-                  <Router history={browserHistory}>
-                    <Route path="/" component={authComponent}>
-                      <Route path="login" component={Login} />
-                      <Route path="logout" component={Logout} />
-                      <Route path="about" component={About} />
-                      <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
-                    </Route>
-                    <Route path="*" component={NotFound} />
-                  </Router>
-                  <App />
-                </div>, $container);
+render((
+
+  <div>
+    <Router history={browserHistory}>
+      <Route path="/" component={Nav} >
+        <IndexRoute component={Welcome}/>
+        <Route path="/auth" component={Auth}/>
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login} />
+        <Route path="/logout" component={Logout} />
+
+        <Route path="/stories" component={Stories} />
+        <Route path="/stories/new/templates/:id" component={StoriesN} />
+        <Route path="/stories/:id" component={StoriesS} />
+        <Route path="/stories/mine" component={StoriesM} />
+        <Route path="/stories/all" component={StoriesA} />
+        <Route path="/templates" component={Templates} />
+        <Route path="templates_mine" component={TemplatesM} />
+        <Route path="/templates/new" component={TemplatesN} />
+        <Route path="/templates/:id/edit" component={TemplatesE} />
+        <Route path="/meta" component={Meta} />
+        <Route path="/form" component={Form} /> {/*not a real Route*/}
+        <Route path="/welcome" component={Welcome} />
+
+        <Route path="*" component={NotFound} />
+
+      </Route>
+    </Router>
+
+  </div>
+)  , $container);

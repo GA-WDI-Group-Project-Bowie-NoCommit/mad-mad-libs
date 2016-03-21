@@ -1,11 +1,5 @@
-//Features: user log in, crud, ajax, framework(React)
+//Features: user log in, crud, framework(React), Firebase
 //change 'crud', 'CRUD', or 'REPLACE' to app specific words
-
-/*-------------------------MAD MAD LIBS SPECIFIC INSTRUCTIONS-------------------------*/
-
-//The crud routes work, but they need to have their names switched out to our specific project and then adapted to fit our exact setup.
-//Also, we still need to figure out some user sign up stuff. Right now we can sign in and out with a fake account, but it's not connected to the database and there's no way to make a new user.
-//After the two issues above are fixed, we should have a pretty good starting point.
 
 'use strict'
 const express        = require('express');
@@ -13,13 +7,13 @@ const logger         = require('morgan');
 const path           = require('path');
 const moment         = require('moment');
 const bodyParser     = require('body-parser');
-// const methodOverride = require('method-override'); //if using a form for PUT and DELETE.
-// const pg            = require('pg');
-// const session        = require('express-session');
-// const pgSession      = require('connect-pg-simple')(session)
-const db             = require('./db/crud_pg');
-// const _              = require('lodash');
 const app            = express();
+
+const request        = require('request');
+
+const wordnik  = require('./routes/wordnik');
+
+// const wotd           = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?api_key=';
 
 /*----------------COMMAND PROMPT COMMANDS --------------*/
 
@@ -34,23 +28,13 @@ const app            = express();
 //psql db_name_here < node_modules/connect-pg-simple/table.sql
 
 /*------------------Bundle Command------------------*/
-//check for if app.js is actual entry point
+//check to see if app.js is actual entry point
 
 //./node_modules/browserify/bin/cmd.js -t [ babelify --presets [react es2015 ] ] public/js/app.js -o public/js/bundle.js -d
 
 if(!process.env.NODE_ENV){
   require('dotenv').config();
 }
-const config = process.env.DATABASE_URL || {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS
-};
-
-//const userRoutes = require(path.join(__dirname, '/routes/users'));
-//const crudRoutes = require(path.join(__dirname, '/routes/cruds'));
 
 if(process.env.NODE_ENV === 'dev'){
   app.use(logger('dev'));
@@ -64,11 +48,14 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res)=>{
-  res.render('index.html');
+  res.sendFile('index.html');
 })
 
-//app.use('/users', userRoutes);
-//app.use('/cruds', crudRoutes);
+app.use('/wordnik', wordnik);   //reroute if it hit wordnik route.
+
+app.get ('*', (req, res)=>{
+  res.sendFile(__dirname + '/public/index.html');
+})
 
 const port = process.env.PORT || 1337;
 const time = moment().format('MMMM Do YYYY, h:mm:ss a');
