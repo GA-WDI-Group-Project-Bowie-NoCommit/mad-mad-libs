@@ -8,8 +8,8 @@ export default React.createClass({
   getInitialState: function(){
     return{
       template: [],
-      nouns: [],
-      verbs: []
+      nouns: 0,
+      verbs: 0
     }
   },
 
@@ -32,7 +32,34 @@ export default React.createClass({
 
   handleSubmit: function(event){
     event.preventDefault()
-    console.log ('the button i pusheded it')
+
+    var oldStoryArray = []
+    var newStoryArray = []
+    var oldStoryText = this.state.template[0].text;
+    var newStoryText;
+
+    var oldStoryArray = oldStoryText.split(' ').forEach(function(element){
+
+      switch(element){
+        case '_noun_':
+          newStoryArray.push(this.refs['noun1'].value)
+          break;
+        case '_verb_':
+          newStoryArray.push(this.refs['verb1'].value)
+          break;
+        default:
+          newStoryArray.push(element)
+      }
+
+    newStoryText = newStoryArray.join(' ');
+  }.bind(this))
+
+
+  this.firebaseRef.push({
+    story: newStoryText
+    //put user id in here
+  });
+  console.log(newStoryText)
 
   },
 
@@ -59,12 +86,14 @@ export default React.createClass({
     if(element === "_noun_"){
       nouns++
       thing.push(<input ref={`noun${nouns}`} type="text" placeholder="Noun" />)
+      this.state.nouns = nouns
     } else if (element === "_verb_"){
       verbs++
       thing.push(<input ref={`verb${verbs}`} type="text" placeholder="Verb" />)
+      this.state.verbs = verbs
     }
 
-  })
+  }.bind(this))
 
   return(
     <div>

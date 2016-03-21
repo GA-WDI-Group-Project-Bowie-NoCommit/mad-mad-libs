@@ -9,8 +9,8 @@ export default React.createClass({
 
     return(
       <div>
-        <div>View Edit and Delete template</div>
-
+        <div>A list of completed stories for people to view</div>
+        <div> <Link to="/story/:id">Links to view one story</Link>  </div>
       </div>
     )
   }

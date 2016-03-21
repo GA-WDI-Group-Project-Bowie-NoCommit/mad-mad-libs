@@ -15,7 +15,7 @@ export default React.createClass({
         <p></p>
         <div><Form /></div>
         </div>
-
+        <div> <Link to="/my/templates/:id/edit">Link to template_edit/view my template and also option to delete</Link>  </div>
       </div>
     )
   }
