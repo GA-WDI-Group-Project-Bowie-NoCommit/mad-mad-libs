@@ -24,10 +24,10 @@ export default React.createClass({
     var title = this.props.params.id
 
     this.firebaseRef.orderByChild("title").equalTo(title).on("child_added", function(dataSnapshot) {
-
+      console.log(dataSnapshot.val())
       this.state.template.push(dataSnapshot.val());
 
-      this.forceUpdate()
+      // this.forceUpdate()
 
     }.bind(this));
   },
@@ -57,14 +57,14 @@ export default React.createClass({
       }
 
     newStoryText = newStoryArray.join(' ');
+
   }.bind(this))
 
-
-  var newData = this.storiesRef.push({
+  var newData = storiesRef.push({
     story: newStoryText,
     user: userRef.getAuth().uid
   });
-  // console.log(newStoryText)
+
   var dataID = newData.key();
   this.context.router.replace(`/stories/${dataID}`)
 
@@ -87,7 +87,7 @@ export default React.createClass({
   var storyText = this.state.template[0].text;
   var nouns = 0;
   var verbs = 0;
-
+  console.log("uuuuuhhhm "+ storyText)
   var textArray = storyText.split(' ').forEach(function(element, index){
 
     if(element === "_noun_"){
