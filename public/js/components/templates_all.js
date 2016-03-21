@@ -37,7 +37,7 @@ export default React.createClass({
     render: function(){
       return(
         <div>
-          Make your own version of a story!
+          Fill out a new Mad Lib!
           <AllTemplates templates={Object.keys(this.state.templates).map(this.renderTemplates)} />
           {this.props.children}
         </div>
