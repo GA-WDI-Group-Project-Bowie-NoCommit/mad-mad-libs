@@ -9,7 +9,7 @@ export default React.createClass({
 
     return(
       <div>
-        <div>A list of options to either fill in nouns and verbs in a story, OR read everyones story OR read your own stories (which would then give options to let you edit delete) </div>
+        <div>Read everyone’s stories or your own!</div>
 
         <div className="everyonesstories"> <Link to="/stories/all">Everyone’s stories</Link>  </div>
         <div className="mystories"> <Link to="/stories/mine">My stories</Link>  </div>
