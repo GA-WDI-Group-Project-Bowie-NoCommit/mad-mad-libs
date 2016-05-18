@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import $ from 'jquery'
 
 import Firebase from 'firebase'
 
@@ -34,42 +35,53 @@ export default React.createClass({
     event.preventDefault()
 
     var userRef = new Firebase('https://crackling-torch-879.firebaseio.com/');
-    var storiesRef = new Firebase('https://amber-heat-1866.firebaseio.com/stories');
 
-    var oldStoryArray = []
-    var newStoryArray = []
-    var oldStoryText = this.state.template[0].text;
-    var newStoryText;
-    var nouns = 0;
-    var verbs = 0;
+    if(userRef.getAuth() === null){
+      this.mustLogIn()
+    } else {
 
-    var oldStoryArray = oldStoryText.split(' ').forEach(function(element){
 
-      switch(element){
-        case '_noun_':
+      var storiesRef = new Firebase('https://amber-heat-1866.firebaseio.com/stories');
+
+      var oldStoryArray = []
+      var newStoryArray = []
+      var oldStoryText = this.state.template[0].text;
+      var newStoryText;
+      var nouns = 0;
+      var verbs = 0;
+
+      var oldStoryArray = oldStoryText.split(' ').forEach(function(element){
+
+        switch(element){
+          case '_noun_':
           nouns++
           newStoryArray.push(this.refs[`noun${nouns}`].value)
           break;
-        case '_verb_':
+          case '_verb_':
           verbs++
           newStoryArray.push(this.refs[`verb${verbs}`].value)
           break;
-        default:
+          default:
           newStoryArray.push(element)
-      }
+        }
 
-    newStoryText = newStoryArray.join(' ');
+        newStoryText = newStoryArray.join(' ');
 
-  }.bind(this))
+      }.bind(this))
 
-  var newData = storiesRef.push({
-    story: newStoryText,
-    user: userRef.getAuth().uid
-  });
+      var newData = storiesRef.push({
+        story: newStoryText,
+        user: userRef.getAuth().uid
+      });
 
-  var dataID = newData.key();
-  this.context.router.replace(`/stories/${dataID}`)
+      var dataID = newData.key();
+      this.context.router.replace(`/stories/${dataID}`)
+    }
 
+  },
+
+  mustLogIn: function(){
+   $('#errorMessage').text('You must be logged in');
   },
 
   renderTitle: function(){
@@ -120,17 +132,18 @@ export default React.createClass({
     }
 
     return(
-      <div>
-        <div>this is where you fill out the nouns and verbs with just knowing the title of the story</div>
-
-        {this.renderTitle()}
+      <div className="centerContent">
+        <div>Fill out the nouns and verbs with just knowing the title of the story!</div>
+        <div id="story">
+          <div id="errorMessage"></div>
+          <div id="storyTitle">{this.renderTitle()}</div>
           <div className="form" style={style}>
             <form ref="storyForm" onSubmit={this.handleSubmit}>
               {this.renderTemplate()}
-              <button type="submit">Form Button</button>
+              <button type="submit">Finish</button>
             </form>
           </div>
-  <div> <Link to="/story/:id"><div>To stories_single.js </div></Link>        </div>
+        </div>
       </div>
     )
   }

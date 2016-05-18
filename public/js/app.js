@@ -35,14 +35,21 @@ let Nav = React.createClass({
     return(
       <div>
         <div className="nav">
-          <div className="header"><Link to="/"><header>Mad Mad Libs</header> </Link>  </div>
-          <p></p>
-          <div className="storiesnav"> <Link to="/stories/"><div>Stories</div></Link>        </div>
-          <div className="templatesnav"> <Link to="/templates/"><div>Templates</div></Link>  </div>
-          <div className="metanav"> <Link to="/meta"><div>Meta</div></Link>             </div>
-          <div> <Link to="/signup"><div>Sign Up</div></Link>        </div>
-          <div> <Link to="/login"><div>Login</div></Link>           </div>
-          <div> <Link to="/logout"><div>Log out</div></Link>        </div>
+
+          <div>
+            <Link to="/">
+              <header className="header">Mad Mad Libs</header>
+            </Link>
+          </div>
+
+          <div id="navOptions">
+            <div className="navOption navStories"><Link to="/stories/"><div>Stories</div></Link></div>
+            <div className="navOption navTemplates"><Link to="/templates/"><div>Templates</div></Link></div>
+            <div className="navOption navMeta"><Link to="/meta"><div>Meta</div></Link></div>
+            <div className="navOption "><Link to="/signup"><div>Sign Up</div></Link></div>
+            <div className="navOption "><Link to="/login"><div>Login</div></Link></div>
+            <div className="navOption "><Link to="/logout"><div>Log out</div></Link></div>
+          </div>
 
         </div>
           {this.props.children}

@@ -1,15 +1,12 @@
-/***********************************************************
-                            General
-***********************************************************/
+/*-----General-----*/
+
 * {
   border-radius: 5px;
   font-family: 'Josefin Sans', sans-serif;
-    /*font-family: 'Poiret One', cursive;*/
 }
 
 body {
-font-family: 'Josefin Sans', sans-serif;
-background: url(../assets/seamless_paper_texture/seamless_paper_texture.png) , rgba(137,128,122, .9);
+  background: url(../assets/seamless_paper_texture/seamless_paper_texture.png) , rgba(137,128,122, .9);
 }
 
 a {
@@ -18,93 +15,74 @@ a {
   font-family: 'Poiret One', cursive;
   font-weight: bold;
   font-size: 1.5em;
-  /*text-shadow: .5px .5px #aaa;*/
 }
 
 a:hover {
   color: #d46a6a;
 }
 
-div {
-  padding: 5px;
-  margin: 5px;
-  font-family: 'Josefin Sans', sans-serif;
+.centerContent {
+  justify-content: center;
+  text-align: center;
 }
 
-/***********************************************************
-                            Container
-***********************************************************/
+#errorMessage {
+  color: red;
+}
+
+/*-----Container-----*/
 
 #container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  width:94%;
-
 }
-/***********************************************************
-                            Nav Bar
-***********************************************************/
+
+/*-----Nav Bar-----*/
+
 .nav {
   max-height: 300px;
-  width:99%;
-  margin-top: -20px;
-  margin-left: -15px;
-  margin-right:-15px;
-  margin-bottom:20px;
+  margin: -20px -15px 20px -15px;
   display:block;
-  /*align-items:center;*/
   font-size: 0.8em;
-  flex-direction: row;
-  padding:0 50px;
   background-color: #ffe6ba;
   box-shadow:1px 2px 3px 1px #666;
   border-radius:5px;
   color: #3e1a00;
-
-}
-
-.nav div {
-  display:inline-block;
-  align-items: center;
-  margin-right: 40px;
-}
-
-header {
-  font-size:2em;
-  margin-bottom: 10px;
-  margin-left:210px;
-  font-family: 'Lobster', cursive;
-  text-shadow:1px 2px 3px #666;
-  text-align: center;
-  display:block;
-
+  padding: 4px;
 }
 
 .header {
-  display:block;
-  font-size:2.5em;
-  margin-bottom: -10px;
-  margin-left: 50px;
+  margin-bottom: 10px;
   font-family: 'Lobster', cursive;
-  align-self:center;
-
+  text-shadow:1px 2px 3px #666;
+  font-size:5.5em;
+  display: flex;
+  justify-content: center;
 }
 
-.storiesnav a:hover {
+#navOptions {
+  display: flex;
+}
+
+.navOption {
+  padding: 4px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.navStories a:hover {
   color: #3e67ab;
 }
 
-.templatesnav a:hover {
+.navTemplates a:hover {
   color: #30a393;
 }
 
-.metanav a:hover {
+.navMeta a:hover {
   color: #E9a325;
 }
-/***********************************************************
-                            Forms
-***********************************************************/
+
+/*-----Forms-----*/
 
 form {
   background-color: rgba(137,128,122, 1);
@@ -113,7 +91,6 @@ form {
 .form {
   background-color: rgba(137,128,122, 1);
   box-shadow:1px 2px 3px 1px #666;
-
 }
 
 input {
@@ -121,20 +98,18 @@ input {
   margin-left:10px;
   margin-top:15px;
   margin-bottom:5px;
-
 }
+
 .signup {
   background-color: rgba(137,128,122, 1);
   box-shadow:1px 2px 3px 1px #666;
 }
 
 .submitbutton {
-  background-color:#ffe58f;
-  padding:5px;
-  border-radius:12px;
-  transform: skewX(-20deg);
-  border-style:groove;
-  border-color:black;
+  background-color:#ffe6ba;
+  padding:4px;
+  border-radius:8px;
+  border: 1px solid black;
   box-shadow:1px 1px 1px 1px #666;
   margin-left:40px;
 }
@@ -144,21 +119,18 @@ input {
 }
 
 button {
-  background-color:#ffe58f;
-  padding:5px;
-  border-radius:12px;
-  transform: skewX(-20deg);
-  border-style:groove;
-  border-color:black;
+  background-color:#ffe6ba;
+  padding:4px;
+  border-radius:8px;
+  border: 1px solid black;
   box-shadow:1px 1px 1px 1px #666;
-
 }
 
 button:hover {
   background-color:#ffd64c;
 }
 
-textarea{
+textarea {
   display:block;
   min-width: 500px;
   margin:5px;
@@ -168,28 +140,30 @@ textarea:focus {
   border: .5px solid #ffe58f;
 }
 
-
-/***********************************************************
-                            Add Noun Verb Form
-***********************************************************/
+/*-----Add Noun Verb Form-----*/
 
 .noun {
   display: block;
-
 }
 .verb {
   display: block;
   background-color: dodgerblue;
 }
-/***********************************************************
-                  Story and Story Cards
-***********************************************************/
+
+/*-----Story and Story Cards-----*/
+
+#instructions {
+  padding: 4px;
+  padding-top: 18px;
+  font: 22px bold;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 .everyonesstories {
   background-color: #b5caef;
   display: inline-block;
   padding:10px;
   margin-right:50px;
-  margin-left:300px;
   font-weight:bold;
   box-shadow:1px 2px 3px 1px #666;
 }
@@ -201,15 +175,15 @@ textarea:focus {
   box-shadow:1px 2px 3px 1px #666;
 }
 
-.everyonesstories a{
+.everyonesstories a {
  color: #132340;
 }
+
 .everyonesstories a:hover {
   color:#151a23;
 }
 
-.everyonesstories a{
-  /*color:;*/
+.everyonesstories a {
   color:#152c55;
 }
 
@@ -225,11 +199,9 @@ textarea:focus {
 .cardscontainer {
   display:flex;
   flex-wrap: wrap;
-  max-width:800px;
-  /*min-height:800px;*/
-    /*box-shadow:1px 2px 3px 1px #666;*/
+  max-width:980px;
+  margin: 4px;
 }
-
 
 .card {
   background-color: dodgerblue;
@@ -238,12 +210,10 @@ textarea:focus {
   margin:10px;
   box-shadow:1px 2px 3px 1px #666;
   border-radius: 5px;
-
 }
 
 .stories {
   background-color: #25509B;
-  display: inline-block;
   padding:15px;
   margin:10px;
   box-shadow:1px 2px 3px 1px #666;
@@ -253,18 +223,20 @@ textarea:focus {
   flex-wrap:wrap;
   max-width:400px;
   max-height: 30px;
+  justify-content: center;
+  flex-grow: 1;
 }
 
-.stories:nth-child(even){
+.stories:nth-child(even) {
   background-color:#5d84C5;
 }
 
 .stories a {
   color:white;
 }
-/***********************************************************
-                  Templates and Template Cards
-***********************************************************/
+
+/*-----Templates and Template Cards-----*/
+
 .newtemplate {
   background-color: #30a393;
   display: inline-block;
@@ -282,7 +254,7 @@ textarea:focus {
   box-shadow:1px 2px 3px 1px #666;
 }
 
-.newtemplate a{
+.newtemplate a {
  color: #132340;
 }
 .everyonesstories a:hover {
@@ -290,7 +262,6 @@ textarea:focus {
 }
 
 .everyonesstories a{
-  /*color:;*/
   color:#152c55;
 }
 
@@ -302,15 +273,6 @@ textarea:focus {
 .mystories a:hover {
   color:#151a23;
 }
-
-.cardscontainer {
-  display:flex;
-  flex-wrap: wrap;
-  max-width:800px;
-  /*min-height:800px;*/
-    /*box-shadow:1px 2px 3px 1px #666;*/
-}
-
 
 .card {
   background-color: dodgerblue;
@@ -336,7 +298,7 @@ textarea:focus {
   max-height: 30px;
 }
 
-.templates:nth-child(even){
+.templates:nth-child(even) {
   background-color:#5d84C5;
 }
 
@@ -351,18 +313,15 @@ textarea:focus {
   box-shadow:1px 2px 3px 1px #666;
 }
 
+/*-----Welcome Page-----*/
 
-
-/***********************************************************
-                  Welcome Page
-***********************************************************/
 .welcome {
   background-color: #FF964c;
   max-width:980px;
   min-height:100px;
   box-shadow:1px 2px 3px 1px #666;
-  margin-left:50px;
   margin-bottom:30px;
+  padding: 4px;
 }
 
 #defofday {
@@ -370,24 +329,32 @@ textarea:focus {
  box-shadow:1px 2px 3px 1px #666;
  align-self: stretch;
  justify-content: center;
- margin-left:50px;
  max-width:980px;
+ padding: 4px;
 }
 
-#defofday div {
-  /*box-shadow:1px 2px 3px 1px #666;*/
-
-}
 #defofday h1 {
   color:white;
   display: inline-block;
   margin-left: 350px;
   font-size: 3.5em;
-
 }
 
 #defofday h2 {
-  /*color:white;
-  margin-left:200px;*/
 
+}
+
+/*-----Welcome Page-----*/
+
+/*-----Stories New-----*/
+
+#story {
+  max-width: 980px;
+  width: 100%;
+}
+
+#storyTitle {
+  font: 25px bold;
+  padding: 4px;
+  width: 980px;
 }

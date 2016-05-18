@@ -8,12 +8,12 @@ export default React.createClass({
   render: function(){
 
     return(
-      <div>
-        <div className="everyonesstories"> <Link to="/stories/all">Everyone’s stories</Link>  </div>
-        <div className="mystories"> <Link to="/stories/mine">My stories</Link>  </div>
-        <div className ="cardscontainer"><TemplatesA /> </div>
-
-
+      <div className="centerContent">
+        <div className="centerContent">
+          <div className="everyonesstories"><Link to="/stories/all">Everyone’s stories</Link></div>
+          <div className="mystories"><Link to="/stories/mine">My stories</Link></div>
+        </div>
+        <div className="centerContent"><TemplatesA /></div>
       </div>
     )
   }
