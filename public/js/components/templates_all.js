@@ -37,7 +37,7 @@ export default React.createClass({
     render: function(){
       return(
         <div>
-          Fill out a new Mad Lib!
+          <div id="instructions">Pick a Mad Mad Lib to fill out!</div>
           <AllTemplates templates={Object.keys(this.state.templates).map(this.renderTemplates)} />
           {this.props.children}
         </div>
