@@ -25,10 +25,10 @@ export default React.createClass({
   render: function(){
 
     return(
-      <div>
-        <div>View of Story once template has been filled in</div>
-        <button> do over! </button>
+      <div id="completedStory">
+        <div>Here's your story!</div>
         <p>{this.state.story[0]}</p>
+        <button> redo! </button>
         <button> save </button>
       </div>
     )
