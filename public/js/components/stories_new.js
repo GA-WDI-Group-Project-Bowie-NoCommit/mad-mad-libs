@@ -40,7 +40,6 @@ export default React.createClass({
       this.mustLogIn()
     } else {
 
-
       var storiesRef = new Firebase('https://amber-heat-1866.firebaseio.com/stories');
 
       var oldStoryArray = []
@@ -50,17 +49,17 @@ export default React.createClass({
       var nouns = 0;
       var verbs = 0;
 
-      var oldStoryArray = oldStoryText.split(' ').forEach(function(element){
+      var oldStoryArray = oldStoryText.split(/([\s,.]?\s)/).forEach(function(element){
 
         switch(element){
           case '_noun_':
-          nouns++
-          newStoryArray.push(this.refs[`noun${nouns}`].value)
-          break;
+            nouns++
+            newStoryArray.push(this.refs[`noun${nouns}`].value)
+            break;
           case '_verb_':
-          verbs++
-          newStoryArray.push(this.refs[`verb${verbs}`].value)
-          break;
+            verbs++
+            newStoryArray.push(this.refs[`verb${verbs}`].value)
+            break;
           default:
           newStoryArray.push(element)
         }
@@ -102,7 +101,7 @@ export default React.createClass({
   var nouns = 0;
   var verbs = 0;
 
-  var textArray = storyText.split(' ').forEach(function(element, index){
+  var textArray = storyText.split(/([\s,.]?\s)/).forEach(function(element, index){
 
     if(element === "_noun_"){
       nouns++
