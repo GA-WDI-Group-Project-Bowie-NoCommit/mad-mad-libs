@@ -15,7 +15,7 @@ Name the branch something like fix/xxx or feature/xxx where xxx is a short descr
 
 Install dependencies with "npm install".
 
-Life Nav uses browserify and babel at the moment, so make sure to type "npm run bundle" in the terminal to package up the javascript. You will have to run this command for any client side code changes.
+Mad-Mad-Libs uses browserify and babel at the moment, so make sure to type "npm run bundle" in the terminal to package up the javascript. You will have to run this command for any client side code changes.
 
 Then run nodemon or "npm start" and the project will be on "localhost://1337" (because jokes)
 
